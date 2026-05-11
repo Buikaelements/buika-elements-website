@@ -81,7 +81,7 @@ export function ResourcesIndex({ cards }: { cards: WhitepaperCard[] }) {
   return (
     <>
       {/* Knowledge Hub featured card */}
-      <section style={{ paddingBlock: 56, borderTop: "1px solid var(--stone)" }}>
+      <section style={{ paddingTop: 96, paddingBottom: 56 }}>
         <div className="container">
           <a
             href={r.hub.url}
