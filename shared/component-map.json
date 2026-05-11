@@ -1,0 +1,218 @@
+{
+  "$schema": "./component-map.schema.json",
+  "version": 1,
+  "description": "Authoritative manifest mapping prototype JSX functions to their Next.js TSX destinations. Read by the sync procedure before regenerating Next components. Updated by hand whenever a component is added/removed/moved. SYNC.md is the prose rendering of this file.",
+  "entries": [
+    {
+      "prototype": "prototype/chrome.jsx#Reveal",
+      "next": ["src/components/Reveal.tsx"],
+      "kind": "client",
+      "notes": "IntersectionObserver-based scroll reveal. Identical API both sides."
+    },
+    {
+      "prototype": "prototype/chrome.jsx#Wordmark",
+      "next": ["src/components/Wordmark.tsx"],
+      "kind": "server",
+      "notes": "Pure presentational. RSC-safe."
+    },
+    {
+      "prototype": "prototype/chrome.jsx#TopNav",
+      "next": ["src/components/TopNav.tsx"],
+      "kind": "client",
+      "notes": "Uses usePathname() for active link; mobile sheet uses useState."
+    },
+    {
+      "prototype": "prototype/chrome.jsx#Footer",
+      "next": ["src/components/Footer.tsx"],
+      "kind": "client",
+      "notes": "Newsletter form is client-side; calls openModal() for contact."
+    },
+    {
+      "prototype": "prototype/chrome.jsx#CredibilityBar",
+      "next": ["src/components/CredibilityBar.tsx"],
+      "kind": "server",
+      "notes": "Pure presentational."
+    },
+    {
+      "prototype": "prototype/chrome.jsx#Statement",
+      "next": ["src/components/Statement.tsx"],
+      "kind": "server",
+      "notes": "Pure presentational."
+    },
+    {
+      "prototype": "prototype/chrome.jsx#CtaBand",
+      "next": ["src/components/CtaBand.tsx"],
+      "kind": "client",
+      "notes": "onClick triggers openModal(); needs useContactModal() hook."
+    },
+    {
+      "prototype": "prototype/chrome.jsx#Placeholder",
+      "next": ["src/components/Placeholder.tsx"],
+      "kind": "server",
+      "notes": "Striped placeholder tile. Pure presentational."
+    },
+    {
+      "prototype": "prototype/chrome.jsx#ContactModal",
+      "next": [
+        "src/components/ContactModal.tsx",
+        "src/components/ContactModalContext.tsx"
+      ],
+      "kind": "client",
+      "notes": "Split into modal (presentation+form) and context provider (open/close state). Form posts to /api/contact in Next; prototype just logs."
+    },
+    {
+      "prototype": "prototype/home.jsx#HeroTypographic",
+      "next": ["src/components/HomeHero.tsx"],
+      "kind": "client",
+      "notes": "Reads heroVariant from useTweaks()."
+    },
+    {
+      "prototype": "prototype/home.jsx#PositioningBlock",
+      "next": ["src/components/HomePositioning.tsx"],
+      "kind": "server",
+      "notes": ""
+    },
+    {
+      "prototype": "prototype/home.jsx#ContrastBlock",
+      "next": ["src/components/HomeContrast.tsx"],
+      "kind": "server",
+      "notes": ""
+    },
+    {
+      "prototype": "prototype/home.jsx#StepsBlock",
+      "next": ["src/components/HomeSteps.tsx"],
+      "kind": "server",
+      "notes": ""
+    },
+    {
+      "prototype": "prototype/home.jsx#WhyBlock",
+      "next": ["src/components/HomeWhy.tsx"],
+      "kind": "server",
+      "notes": ""
+    },
+    {
+      "prototype": "prototype/home.jsx#ServicesPreview",
+      "next": ["src/components/ServicesList.tsx"],
+      "kind": "server",
+      "notes": "ServicesList serves both the home preview and the full /services page; preview vs full is a prop."
+    },
+    {
+      "prototype": "prototype/home.jsx#HomePage",
+      "next": ["src/app/[locale]/page.tsx"],
+      "kind": "server",
+      "notes": "Composition only. Section ORDER must match prototype exactly."
+    },
+    {
+      "prototype": "prototype/about.jsx#AboutPage",
+      "next": [
+        "src/components/AboutBio.tsx",
+        "src/components/AboutStats.tsx",
+        "src/components/AboutOperate.tsx",
+        "src/app/[locale]/about/page.tsx"
+      ],
+      "kind": "mixed",
+      "notes": "Prototype's single AboutPage splits into three sub-components + composing page."
+    },
+    {
+      "prototype": "prototype/services.jsx#ServicesPage",
+      "next": [
+        "src/components/ServicesList.tsx",
+        "src/app/[locale]/services/page.tsx"
+      ],
+      "kind": "mixed",
+      "notes": ""
+    },
+    {
+      "prototype": "prototype/resources.jsx#ResourcesPage",
+      "next": [
+        "src/components/ResourcesIndex.tsx",
+        "src/app/[locale]/resources/page.tsx"
+      ],
+      "kind": "client",
+      "notes": "Filters use useState; newsletter form posts to backend."
+    },
+    {
+      "prototype": "prototype/resource-detail.jsx#ResourceDetailPage",
+      "next": ["src/app/[locale]/resources/[slug]/page.tsx"],
+      "kind": "server",
+      "notes": "Stub until Sanity Portable Text wiring lands; gating logic added in next milestone."
+    },
+    {
+      "prototype": "prototype/tweaks-panel.jsx#TweaksPanel",
+      "next": ["src/components/TweaksPanel.tsx"],
+      "kind": "client",
+      "notes": "Dev-only in Next (gated behind ?tweaks=1 or NODE_ENV check)."
+    },
+    {
+      "prototype": "prototype/tweaks-panel.jsx#useTweaks",
+      "next": ["src/components/TweaksProvider.tsx"],
+      "kind": "client",
+      "notes": "Prototype exposes useTweaks as a local hook; Next promotes it to a Provider+useTweaks pair so all components can read tweaks via context."
+    },
+    {
+      "prototype": "prototype/app.jsx#TWEAK_DEFAULTS",
+      "next": ["src/components/TweaksProvider.tsx"],
+      "kind": "client",
+      "notes": "Top-of-file constant. Mirror exactly. Source of truth: prototype EDITMODE block."
+    },
+    {
+      "prototype": "prototype/app.jsx#SERIF_STACKS",
+      "next": ["src/components/TweaksProvider.tsx"],
+      "kind": "client",
+      "notes": "Top-of-file constant."
+    },
+    {
+      "prototype": "prototype/app.jsx#PAPER_WARMTH_MAP",
+      "next": ["src/components/TweaksProvider.tsx"],
+      "kind": "client",
+      "notes": "Top-of-file constant."
+    },
+    {
+      "prototype": "prototype/app.jsx#SIGNAL_OPTIONS",
+      "next": ["src/components/TweaksProvider.tsx"],
+      "kind": "client",
+      "notes": "Top-of-file constant."
+    },
+    {
+      "prototype": "prototype/app.jsx#HERO_VARIANTS",
+      "next": ["src/components/TweaksProvider.tsx"],
+      "kind": "client",
+      "notes": "Top-of-file constant."
+    },
+    {
+      "prototype": "prototype/app.jsx#App",
+      "next": [
+        "src/app/[locale]/layout.tsx",
+        "src/components/SiteChrome.tsx"
+      ],
+      "kind": "mixed",
+      "notes": "Prototype App handles routing + providers + chrome together. Next splits: layout.tsx wires Tweaks/Locale/ContactModal providers; SiteChrome renders the nav/footer/modal shell. Routing is Next's [locale] segment, not prototype's setRoute state."
+    },
+    {
+      "prototype": "prototype/copy.js#COPY",
+      "next": ["src/lib/copy.ts"],
+      "kind": "data",
+      "notes": "Bilingual copy bundle. Production-locked strings. Mirror structure exactly; sync must preserve string content unchanged unless explicitly told otherwise."
+    }
+  ],
+  "nextOnly": [
+    "src/app/api/contact/route.ts",
+    "src/app/layout.tsx",
+    "src/proxy.ts",
+    "src/lib/sanity.ts",
+    "src/lib/queries.ts",
+    "src/lib/mock-data.ts",
+    "src/lib/types.ts",
+    "src/lib/i18n.ts",
+    "src/lib/content.ts",
+    "src/components/PlausibleScript.tsx",
+    "src/components/LocaleContext.tsx",
+    "next.config.mjs",
+    "tsconfig.json",
+    "sanity/**",
+    ".env.example",
+    "README.md",
+    "SYNC.md",
+    "shared/component-map.json"
+  ]
+}

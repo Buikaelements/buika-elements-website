@@ -1,0 +1,19 @@
+/* ————————————————————————————————————————
+   BUIKA ELEMENTS — Prototype stylesheet
+   This file is now a thin shell. The actual styles live in /shared/
+   and are imported by both the prototype and the Next.js app.
+
+   To edit tokens or styles, open the corresponding shared/ file:
+     • shared/tokens.css    — design tokens (colors, type, rhythm)
+     • shared/base.css      — reset, typography, buttons, forms,
+                              placeholders, reveal animation
+     • shared/sections.css  — nav, footer, modal, tweaks panel,
+                              and per-page section CSS
+
+   Both the prototype HTML and Next.js globals.css consume these
+   exact same files, so changes propagate to both surfaces.
+   ———————————————————————————————————————— */
+
+@import url("../shared/tokens.css");
+@import url("../shared/base.css");
+@import url("../shared/sections.css");

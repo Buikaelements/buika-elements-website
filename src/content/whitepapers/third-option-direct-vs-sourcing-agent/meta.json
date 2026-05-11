@@ -1,0 +1,35 @@
+{
+  "_id": "wp-third-option",
+  "slug": { "current": "third-option-direct-vs-sourcing-agent" },
+  "title": {
+    "en": "The third option between going direct and using a sourcing agent",
+    "es": "La tercera opción entre ir directo y usar un agente de sourcing"
+  },
+  "abstract": {
+    "en": "Why the two dominant models for European brands producing in Asia both fail the same way — and what an external buying team does differently.",
+    "es": "Por qué los dos modelos dominantes para marcas europeas produciendo en Asia fallan de la misma manera — y qué hace diferente un equipo de compras externo."
+  },
+  "pdf": { "en": null, "es": null },
+  "coverImage": {
+    "alt": "European brand team reviewing factory samples",
+    "src": "/content/whitepapers/third-option-direct-vs-sourcing-agent/cover.jpg"
+  },
+  "topic": "sourcing",
+  "tags": ["sourcing", "agent", "direct factory", "procurement"],
+  "regions": [],
+  "regulations": [],
+  "readingTime": 11,
+  "author": {
+    "_id": "person-simon",
+    "name": "Simon Buika",
+    "title": "Founder"
+  },
+  "access": "open",
+  "publishedAt": "2025-12-05T09:00:00.000Z",
+  "seo": {
+    "metaTitle": { "en": "The third option: external buying team" },
+    "metaDescription": { "en": "Why direct-to-factory and agent models both fail European brands." },
+    "noIndex": false
+  },
+  "featured": false
+}

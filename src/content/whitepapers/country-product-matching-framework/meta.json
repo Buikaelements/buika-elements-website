@@ -1,0 +1,39 @@
+{
+  "_id": "wp-country-matching",
+  "slug": { "current": "country-product-matching-framework" },
+  "title": {
+    "en": "Country-Product Matching Framework: an introduction",
+    "es": "Marco de correspondencia País-Producto: una introducción"
+  },
+  "abstract": {
+    "en": "The structured criteria we use to match a product specification to a country and factory profile. First public outline of the selection mechanism.",
+    "es": "Los criterios estructurados que usamos para emparejar una especificación de producto con un perfil de país y fábrica. Primer esbozo público del mecanismo de selección."
+  },
+  "pdf": {
+    "en": { "url": "/content/whitepapers/country-product-matching-framework/country-product-matching-framework-en.pdf", "size": 1800000, "originalFilename": "country-product-matching-framework-en.pdf" },
+    "es": null
+  },
+  "coverImage": {
+    "alt": "Map of Asia with product-category overlays",
+    "src": "/content/whitepapers/country-product-matching-framework/cover.jpg"
+  },
+  "topic": "sourcing",
+  "tags": ["framework", "country selection", "product matching", "methodology"],
+  "regions": ["china", "vietnam", "bangladesh", "myanmar"],
+  "regulations": [],
+  "readingTime": 24,
+  "pageCount": 24,
+  "author": {
+    "_id": "person-simon",
+    "name": "Simon Buika",
+    "title": "Founder"
+  },
+  "access": "gated",
+  "publishedAt": "2025-11-02T09:00:00.000Z",
+  "seo": {
+    "metaTitle": { "en": "Country-Product Matching Framework" },
+    "metaDescription": { "en": "Structured criteria for matching specification to country." },
+    "noIndex": false
+  },
+  "featured": true
+}

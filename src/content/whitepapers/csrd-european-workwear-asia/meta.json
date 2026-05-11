@@ -1,0 +1,49 @@
+{
+  "_id": "wp-csrd-workwear",
+  "slug": { "current": "csrd-european-workwear-asia" },
+  "title": {
+    "en": "CSRD for European workwear brands producing in Asia: what factories can and cannot document today",
+    "es": "CSRD para marcas europeas de workwear produciendo en Asia: qué pueden documentar las fábricas hoy"
+  },
+  "subtitle": {
+    "en": "A practical field guide for sustainability officers and procurement leads",
+    "es": "Una guía práctica de campo para responsables de sostenibilidad y compras"
+  },
+  "abstract": {
+    "en": "A practical reading of CSRD scope 3 Category 1 requirements, what tier-1 and tier-2 suppliers in China, Vietnam, and Bangladesh actually track, and how to close the gap before your first audit.",
+    "es": "Lectura práctica de los requisitos de CSRD alcance 3 Categoría 1, qué documentan en realidad los proveedores tier-1 y tier-2 en China, Vietnam y Bangladesh, y cómo cerrar la brecha antes de la primera auditoría."
+  },
+  "pdf": {
+    "en": { "url": "/content/whitepapers/csrd-european-workwear-asia/csrd-european-workwear-asia-en.pdf", "size": 2400000, "originalFilename": "csrd-european-workwear-asia-en.pdf" },
+    "es": { "url": "/content/whitepapers/csrd-european-workwear-asia/csrd-european-workwear-asia-es.pdf", "size": 2400000, "originalFilename": "csrd-european-workwear-asia-es.pdf" }
+  },
+  "coverImage": {
+    "alt": "Factory floor in Ningbo with sustainability documentation on clipboards",
+    "src": "/content/whitepapers/csrd-european-workwear-asia/cover.jpg"
+  },
+  "topic": "compliance",
+  "tags": ["CSRD", "ESG", "supply chain", "workwear"],
+  "regions": ["china", "vietnam", "bangladesh", "eu"],
+  "regulations": ["csrd", "csddd"],
+  "readingTime": 32,
+  "pageCount": 32,
+  "author": {
+    "_id": "person-simon",
+    "name": "Simon Buika",
+    "title": "Founder"
+  },
+  "access": "gated",
+  "publishedAt": "2026-03-12T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "CSRD for European workwear brands in Asia",
+      "es": "CSRD para marcas europeas de workwear en Asia"
+    },
+    "metaDescription": {
+      "en": "Scope 3 Category 1 practical guidance for tier-1 and tier-2 Asian suppliers.",
+      "es": "Guía práctica de alcance 3 Categoría 1 para proveedores asiáticos tier-1 y tier-2."
+    },
+    "noIndex": false
+  },
+  "featured": true
+}

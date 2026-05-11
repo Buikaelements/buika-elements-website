@@ -1,0 +1,38 @@
+{
+  "_id": "wp-fob-hides",
+  "slug": { "current": "what-fob-price-hides" },
+  "title": {
+    "en": "What a FOB price actually hides",
+    "es": "Lo que realmente esconde un precio FOB"
+  },
+  "abstract": {
+    "en": "Three things the quote on the PI does not show you — and the two questions you should always ask before accepting a number from a factory you have not visited.",
+    "es": "Tres cosas que la cotización del PI no muestra — y las dos preguntas que siempre deberías hacer antes de aceptar un número de una fábrica que no has visitado."
+  },
+  "pdf": { "en": null, "es": null },
+  "coverImage": {
+    "alt": "Pro forma invoice with highlighted cost lines",
+    "src": "/content/whitepapers/what-fob-price-hides/cover.jpg"
+  },
+  "topic": "costing",
+  "tags": ["FOB", "costing", "procurement", "factory audit"],
+  "regions": [],
+  "regulations": [],
+  "readingTime": 9,
+  "author": {
+    "_id": "person-simon",
+    "name": "Simon Buika",
+    "title": "Founder"
+  },
+  "access": "open",
+  "publishedAt": "2026-02-14T09:00:00.000Z",
+  "seo": {
+    "metaTitle": { "en": "What a FOB price hides", "es": "Lo que esconde un FOB" },
+    "metaDescription": {
+      "en": "The three things Asian factory quotes routinely omit.",
+      "es": "Las tres cosas que las cotizaciones de fábrica asiáticas omiten."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

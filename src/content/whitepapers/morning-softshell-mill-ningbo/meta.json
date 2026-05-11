@@ -1,0 +1,35 @@
+{
+  "_id": "wp-softshell-mill",
+  "slug": { "current": "morning-softshell-mill-ningbo" },
+  "title": {
+    "en": "A morning in a softshell mill outside Ningbo",
+    "es": "Una mañana en una fábrica de softshell a las afueras de Ningbo"
+  },
+  "abstract": {
+    "en": "Notes on what you see on a technical fabric audit that never makes it onto the PI.",
+    "es": "Notas sobre lo que ves en una auditoría de tejido técnico que nunca llega al PI."
+  },
+  "pdf": { "en": null, "es": null },
+  "coverImage": {
+    "alt": "Softshell fabric rolls in a Ningbo textile mill",
+    "src": "/content/whitepapers/morning-softshell-mill-ningbo/cover.jpg"
+  },
+  "topic": "field-notes",
+  "tags": ["field notes", "Ningbo", "softshell", "fabric audit"],
+  "regions": ["china"],
+  "regulations": [],
+  "readingTime": 5,
+  "author": {
+    "_id": "person-simon",
+    "name": "Simon Buika",
+    "title": "Founder"
+  },
+  "access": "open",
+  "publishedAt": "2025-10-18T09:00:00.000Z",
+  "seo": {
+    "metaTitle": { "en": "A morning in a softshell mill outside Ningbo" },
+    "metaDescription": { "en": "Field notes from a technical fabric audit." },
+    "noIndex": false
+  },
+  "featured": false
+}

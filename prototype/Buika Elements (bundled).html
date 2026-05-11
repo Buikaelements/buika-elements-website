@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Buika Elements — Your buying team in Asia (bundled)</title>
+<meta name="description" content="Production partner in Asia for European B2B brands. 16 years of manufacturer-side experience, based in Da Nang, Vietnam. Not a sourcing agent." />
+
+<!--
+  This is a bundled copy of `Buika Elements.html`.
+  All `<script type="text/babel" src="X.jsx">` references have been replaced
+  with inline `<script type="text/babel">…</script>` blocks containing the
+  JSX source verbatim. The original file uses external `src=`s, which fail
+  to load under file:// because Babel-standalone fetches them via XHR and
+  Chrome blocks cross-origin requests for file:// URLs.
+  Edit the original `*.jsx` files (source of truth); this file is generated.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=EB+Garamond:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+<link rel="stylesheet" href="styles.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script src="copy.js?v=3"></script>
+</head>
+<body>
+<div id="root"></div>
+<a href="#main" style="position:absolute;left:-9999px;top:auto;" onFocus="this.style.left='16px';this.style.top='16px'">Skip to content</a>
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     INLINED: tweaks-panel.jsx
+     ═════════════════════════════════════════════════════════════════════ -->
+<script type="text/babel" data-presets="env,react">
+
+// tweaks-panel.jsx
+// Reusable Tweaks shell + form-control helpers.
+
+const __TWEAKS_STYLE = `
+  .twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
+    max-height:calc(100vh - 32px);display:flex;flex-direction:column;
+    background:rgba(250,249,247,.78);color:#29261b;
+    -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
+    border:.5px solid rgba(255,255,255,.6);border-radius:14px;
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 12px 40px rgba(0,0,0,.18);
+    font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}
+  .twk-hd{display:flex;align-items:center;justify-content:space-between;
+    padding:10px 8px 10px 14px;cursor:move;user-select:none}
+  .twk-hd b{font-size:12px;font-weight:600;letter-spacing:.01em}
+  .twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);
+    width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}
+  .twk-x:hover{background:rgba(0,0,0,.06);color:#29261b}
+  .twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;
+    overflow-y:auto;overflow-x:hidden;min-height:0;
+    scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent}
+  .twk-body::-webkit-scrollbar{width:8px}
+  .twk-body::-webkit-scrollbar-track{background:transparent;margin:2px}
+  .twk-body::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);border-radius:4px;
+    border:2px solid transparent;background-clip:content-box}
+  .twk-body::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.25);
+    border:2px solid transparent;background-clip:content-box}
+  .twk-row{display:flex;flex-direction:column;gap:5px}
+  .twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
+  .twk-lbl{display:flex;justify-content:space-between;align-items:baseline;
+    color:rgba(41,38,27,.72)}
+  .twk-lbl>span:first-child{font-weight:500}
+  .twk-val{color:rgba(41,38,27,.5);font-variant-numeric:tabular-nums}
+
+  .twk-sect{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(41,38,27,.45);padding:10px 0 0}
+  .twk-sect:first-child{padding-top:0}
+
+  .twk-field{appearance:none;width:100%;height:26px;padding:0 8px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:7px;
+    background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}
+  .twk-field:focus{border-color:rgba(0,0,0,.25);background:rgba(255,255,255,.85)}
+  select.twk-field{padding-right:22px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='rgba(0,0,0,.5)' d='M0 0h10L5 6z'/></svg>");
+    background-repeat:no-repeat;background-position:right 8px center}
+
+  .twk-slider{appearance:none;-webkit-appearance:none;width:100%;height:4px;margin:6px 0;
+    border-radius:999px;background:rgba(0,0,0,.12);outline:none}
+  .twk-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+    width:14px;height:14px;border-radius:50%;background:#fff;
+    border:.5px solid rgba(0,0,0,.12);box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:default}
+  .twk-slider::-moz-range-thumb{width:14px;height:14px;border-radius:50%;
+    background:#fff;border:.5px solid rgba(0,0,0,.12);box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:default}
+
+  .twk-seg{position:relative;display:flex;padding:2px;border-radius:8px;
+    background:rgba(0,0,0,.06);user-select:none}
+  .twk-seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:6px;
+    background:rgba(255,255,255,.9);box-shadow:0 1px 2px rgba(0,0,0,.12);
+    transition:left .15s cubic-bezier(.3,.7,.4,1),width .15s}
+  .twk-seg.dragging .twk-seg-thumb{transition:none}
+  .twk-seg button{appearance:none;position:relative;z-index:1;flex:1;border:0;
+    background:transparent;color:inherit;font:inherit;font-weight:500;height:22px;
+    border-radius:6px;cursor:default;padding:0}
+
+  .twk-toggle{position:relative;width:32px;height:18px;border:0;border-radius:999px;
+    background:rgba(0,0,0,.15);transition:background .15s;cursor:default;padding:0}
+  .twk-toggle[data-on="1"]{background:#34c759}
+  .twk-toggle i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
+    background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+  .twk-toggle[data-on="1"] i{transform:translateX(14px)}
+
+  .twk-num{display:flex;align-items:center;height:26px;padding:0 0 0 8px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6)}
+  .twk-num-lbl{font-weight:500;color:rgba(41,38,27,.6);cursor:ew-resize;
+    user-select:none;padding-right:8px}
+  .twk-num input{flex:1;min-width:0;height:100%;border:0;background:transparent;
+    font:inherit;font-variant-numeric:tabular-nums;text-align:right;padding:0 8px 0 0;
+    outline:none;color:inherit;-moz-appearance:textfield}
+  .twk-num input::-webkit-inner-spin-button,.twk-num input::-webkit-outer-spin-button{
+    -webkit-appearance:none;margin:0}
+  .twk-num-unit{padding-right:8px;color:rgba(41,38,27,.45)}
+
+  .twk-btn{appearance:none;height:26px;padding:0 12px;border:0;border-radius:7px;
+    background:rgba(0,0,0,.78);color:#fff;font:inherit;font-weight:500;cursor:default}
+  .twk-btn:hover{background:rgba(0,0,0,.88)}
+  .twk-btn.secondary{background:rgba(0,0,0,.06);color:inherit}
+  .twk-btn.secondary:hover{background:rgba(0,0,0,.1)}
+
+  .twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;cursor:default;
+    background:transparent;flex-shrink:0}
+  .twk-swatch::-webkit-color-swatch-wrapper{padding:0}
+  .twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}
+  .twk-swatch::-moz-color-swatch{border:0;border-radius:5.5px}
+`;
+
+function useTweaks(defaults) {
+  const [values, setValues] = React.useState(defaults);
+  const setTweak = React.useCallback((key, val) => {
+    setValues((prev) => ({ ...prev, [key]: val }));
+    try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: val } }, '*'); } catch {}
+  }, []);
+  return [values, setTweak];
+}
+
+function TweaksPanel({ title = 'Tweaks', children }) {
+  const [open, setOpen] = React.useState(false);
+  const dragRef = React.useRef(null);
+  const offsetRef = React.useRef({ x: 16, y: 16 });
+  const PAD = 16;
+
+  const clampToViewport = React.useCallback(() => {
+    const panel = dragRef.current;
+    if (!panel) return;
+    const w = panel.offsetWidth, h = panel.offsetHeight;
+    const maxRight = Math.max(PAD, window.innerWidth - w - PAD);
+    const maxBottom = Math.max(PAD, window.innerHeight - h - PAD);
+    offsetRef.current = {
+      x: Math.min(maxRight, Math.max(PAD, offsetRef.current.x)),
+      y: Math.min(maxBottom, Math.max(PAD, offsetRef.current.y)),
+    };
+    panel.style.right = offsetRef.current.x + 'px';
+    panel.style.bottom = offsetRef.current.y + 'px';
+  }, []);
+
+  React.useEffect(() => {
+    if (!open) return;
+    clampToViewport();
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', clampToViewport);
+      return () => window.removeEventListener('resize', clampToViewport);
+    }
+    const ro = new ResizeObserver(clampToViewport);
+    ro.observe(document.documentElement);
+    return () => ro.disconnect();
+  }, [open, clampToViewport]);
+
+  React.useEffect(() => {
+    const onMsg = (e) => {
+      const t = e?.data?.type;
+      if (t === '__activate_edit_mode') setOpen(true);
+      else if (t === '__deactivate_edit_mode') setOpen(false);
+    };
+    window.addEventListener('message', onMsg);
+    try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch {}
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
+  const dismiss = () => {
+    setOpen(false);
+    try { window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); } catch {}
+  };
+
+  const onDragStart = (e) => {
+    const panel = dragRef.current;
+    if (!panel) return;
+    const r = panel.getBoundingClientRect();
+    const sx = e.clientX, sy = e.clientY;
+    const startRight = window.innerWidth - r.right;
+    const startBottom = window.innerHeight - r.bottom;
+    const move = (ev) => {
+      offsetRef.current = {
+        x: startRight - (ev.clientX - sx),
+        y: startBottom - (ev.clientY - sy),
+      };
+      clampToViewport();
+    };
+    const up = () => {
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('mouseup', up);
+    };
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', up);
+  };
+
+  if (!open) return null;
+  return (
+    <>
+      <style>{__TWEAKS_STYLE}</style>
+      <div ref={dragRef} className="twk-panel"
+           style={{ right: offsetRef.current.x, bottom: offsetRef.current.y }}>
+        <div className="twk-hd" onMouseDown={onDragStart}>
+          <b>{title}</b>
+          <button className="twk-x" aria-label="Close tweaks"
+                  onMouseDown={(e) => e.stopPropagation()}
+                  onClick={dismiss}>✕</button>
+        </div>
+        <div className="twk-body">{children}</div>
+      </div>
+    </>
+  );
+}
+
+function TweakSection({ label, children }) {
+  return (
+    <>
+      <div className="twk-sect">{label}</div>
+      {children}
+    </>
+  );
+}
+
+function TweakRow({ label, value, children, inline = false }) {
+  return (
+    <div className={inline ? 'twk-row twk-row-h' : 'twk-row'}>
+      <div className="twk-lbl">
+        <span>{label}</span>
+        {value != null && <span className="twk-val">{value}</span>}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function TweakSlider({ label, value, min = 0, max = 100, step = 1, unit = '', onChange }) {
+  return (
+    <TweakRow label={label} value={`${value}${unit}`}>
+      <input type="range" className="twk-slider" min={min} max={max} step={step}
+             value={value} onChange={(e) => onChange(Number(e.target.value))} />
+    </TweakRow>
+  );
+}
+
+function TweakToggle({ label, value, onChange }) {
+  return (
+    <div className="twk-row twk-row-h">
+      <div className="twk-lbl"><span>{label}</span></div>
+      <button type="button" className="twk-toggle" data-on={value ? '1' : '0'}
+              role="switch" aria-checked={!!value}
+              onClick={() => onChange(!value)}><i /></button>
+    </div>
+  );
+}
+
+function TweakRadio({ label, value, options, onChange }) {
+  const trackRef = React.useRef(null);
+  const [dragging, setDragging] = React.useState(false);
+  const opts = options.map((o) => (typeof o === 'object' ? o : { value: o, label: o }));
+  const idx = Math.max(0, opts.findIndex((o) => o.value === value));
+  const n = opts.length;
+
+  const valueRef = React.useRef(value);
+  valueRef.current = value;
+
+  const segAt = (clientX) => {
+    const r = trackRef.current.getBoundingClientRect();
+    const inner = r.width - 4;
+    const i = Math.floor(((clientX - r.left - 2) / inner) * n);
+    return opts[Math.max(0, Math.min(n - 1, i))].value;
+  };
+
+  const onPointerDown = (e) => {
+    setDragging(true);
+    const v0 = segAt(e.clientX);
+    if (v0 !== valueRef.current) onChange(v0);
+    const move = (ev) => {
+      if (!trackRef.current) return;
+      const v = segAt(ev.clientX);
+      if (v !== valueRef.current) onChange(v);
+    };
+    const up = () => {
+      setDragging(false);
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+
+  return (
+    <TweakRow label={label}>
+      <div ref={trackRef} role="radiogroup" onPointerDown={onPointerDown}
+           className={dragging ? 'twk-seg dragging' : 'twk-seg'}>
+        <div className="twk-seg-thumb"
+             style={{ left: `calc(2px + ${idx} * (100% - 4px) / ${n})`,
+                      width: `calc((100% - 4px) / ${n})` }} />
+        {opts.map((o) => (
+          <button key={o.value} type="button" role="radio" aria-checked={o.value === value}>
+            {o.label}
+          </button>
+        ))}
+      </div>
+    </TweakRow>
+  );
+}
+
+function TweakSelect({ label, value, options, onChange }) {
+  return (
+    <TweakRow label={label}>
+      <select className="twk-field" value={value} onChange={(e) => onChange(e.target.value)}>
+        {options.map((o) => {
+          const v = typeof o === 'object' ? o.value : o;
+          const l = typeof o === 'object' ? o.label : o;
+          return <option key={v} value={v}>{l}</option>;
+        })}
+      </select>
+    </TweakRow>
+  );
+}
+
+function TweakText({ label, value, placeholder, onChange }) {
+  return (
+    <TweakRow label={label}>
+      <input className="twk-field" type="text" value={value} placeholder={placeholder}
+             onChange={(e) => onChange(e.target.value)} />
+    </TweakRow>
+  );
+}
+
+function TweakNumber({ label, value, min, max, step = 1, unit = '', onChange }) {
+  const clamp = (n) => {
+    if (min != null && n < min) return min;
+    if (max != null && n > max) return max;
+    return n;
+  };
+  const startRef = React.useRef({ x: 0, val: 0 });
+  const onScrubStart = (e) => {
+    e.preventDefault();
+    startRef.current = { x: e.clientX, val: value };
+    const decimals = (String(step).split('.')[1] || '').length;
+    const move = (ev) => {
+      const dx = ev.clientX - startRef.current.x;
+      const raw = startRef.current.val + dx * step;
+      const snapped = Math.round(raw / step) * step;
+      onChange(clamp(Number(snapped.toFixed(decimals))));
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+  return (
+    <div className="twk-num">
+      <span className="twk-num-lbl" onPointerDown={onScrubStart}>{label}</span>
+      <input type="number" value={value} min={min} max={max} step={step}
+             onChange={(e) => onChange(clamp(Number(e.target.value)))} />
+      {unit && <span className="twk-num-unit">{unit}</span>}
+    </div>
+  );
+}
+
+function TweakColor({ label, value, onChange }) {
+  return (
+    <div className="twk-row twk-row-h">
+      <div className="twk-lbl"><span>{label}</span></div>
+      <input type="color" className="twk-swatch" value={value}
+             onChange={(e) => onChange(e.target.value)} />
+    </div>
+  );
+}
+
+function TweakButton({ label, onClick, secondary = false }) {
+  return (
+    <button type="button" className={secondary ? 'twk-btn secondary' : 'twk-btn'}
+            onClick={onClick}>{label}</button>
+  );
+}
+
+Object.assign(window, {
+  useTweaks, TweaksPanel, TweakSection, TweakRow,
+  TweakSlider, TweakToggle, TweakRadio, TweakSelect,
+  TweakText, TweakNumber, TweakColor, TweakButton,
+});
+</script>
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     INLINED: chrome.jsx
+     ═════════════════════════════════════════════════════════════════════ -->
+<script type="text/babel" data-presets="env,react">
+const { useState, useEffect, useRef, useMemo } = React;
+
+function Reveal({ children, delay = 0, as: As = "div", className = "", ...rest }) {
+  const ref = useRef(null);
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") { setShown(true); return; }
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          setTimeout(() => setShown(true), delay);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [delay]);
+  return <As ref={ref} className={`reveal ${shown ? "in" : ""} ${className}`} {...rest}>{children}</As>;
+}
+
+function Wordmark({ size = 20, onDark = false }) {
+  return (
+    <span style={{
+      fontFamily: "var(--serif)",
+      fontWeight: 400,
+      fontSize: size,
+      letterSpacing: "0.08em",
+      color: onDark ? "var(--paper)" : "var(--ink)",
+      textTransform: "uppercase",
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "0.5em",
+      whiteSpace: "nowrap",
+    }}>
+      <span style={{
+        display: "inline-block",
+        width: "0.32em", height: "0.32em",
+        background: "var(--signal)",
+        marginTop: "0.08em",
+        flexShrink: 0,
+      }} />
+      <span style={{ whiteSpace: "nowrap" }}>Buika Elements</span>
+    </span>
+  );
+}
+
+function TopNav({ route, setRoute, lang, setLang, onOpenContact, copy }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  useEffect(() => {
+    document.body.classList.toggle("no-scroll", mobileOpen);
+  }, [mobileOpen]);
+
+  const items = [
+    { key: "home", label: copy.nav.home },
+    { key: "services", label: copy.nav.services },
+    { key: "about", label: copy.nav.about },
+    { key: "resources", label: copy.nav.resources },
+  ];
+
+  const navStyle = {
+    position: "fixed", top: 0, left: 0, right: 0, zIndex: 40,
+    background: "color-mix(in srgb, var(--paper) 92%, transparent)",
+    backdropFilter: "blur(12px) saturate(140%)",
+    WebkitBackdropFilter: "blur(12px) saturate(140%)",
+    borderBottom: scrolled ? "1px solid var(--stone)" : "1px solid transparent",
+    transition: "border-color 200ms var(--ease)",
+  };
+
+  return (
+    <>
+      <header style={navStyle}>
+        <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+          <a href="#home" onClick={(e) => { e.preventDefault(); setRoute("home"); }} aria-label="Buika Elements home">
+            <Wordmark size={18} />
+          </a>
+          <nav className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 36 }}>
+            {items.map(it => {
+              const active = route === it.key;
+              return (
+                <a key={it.key} href={`#${it.key}`}
+                   onClick={(e) => { e.preventDefault(); setRoute(it.key); }}
+                   style={{
+                     fontSize: 14, fontWeight: active ? 500 : 400,
+                     color: active ? "var(--ink)" : "var(--ink-muted)",
+                     paddingBottom: 4,
+                     borderBottom: active ? "1px solid var(--ink)" : "1px solid transparent",
+                     transition: "color 200ms var(--ease), border-color 200ms var(--ease)",
+                   }}>
+                  {it.label}
+                </a>
+              );
+            })}
+            <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, marginLeft: 12 }}>
+              <button onClick={() => setLang("en")} style={{
+                color: lang === "en" ? "var(--ink)" : "var(--ink-muted)",
+                fontWeight: lang === "en" ? 500 : 400,
+              }}>EN</button>
+              <span style={{ color: "var(--stone)" }}>/</span>
+              <button onClick={() => setLang("es")} style={{
+                color: lang === "es" ? "var(--ink)" : "var(--ink-muted)",
+                fontWeight: lang === "es" ? 500 : 400,
+              }}>ES</button>
+            </div>
+          </nav>
+          <button className="nav-hamburger"
+                  onClick={() => setMobileOpen(o => !o)}
+                  aria-label="Menu"
+                  aria-expanded={mobileOpen}
+                  style={{ display: "none", width: 40, height: 40, alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 20, height: 12, position: "relative" }}>
+              <div style={{
+                position: "absolute", left: 0, right: 0, height: 1, background: "var(--ink)",
+                top: mobileOpen ? 6 : 0,
+                transform: mobileOpen ? "rotate(45deg)" : "none",
+                transition: "all 200ms var(--ease)",
+              }} />
+              <div style={{
+                position: "absolute", left: 0, right: 0, height: 1, background: "var(--ink)",
+                top: mobileOpen ? 6 : 11,
+                transform: mobileOpen ? "rotate(-45deg)" : "none",
+                transition: "all 200ms var(--ease)",
+              }} />
+            </div>
+          </button>
+        </div>
+      </header>
+
+      <div style={{
+        position: "fixed", inset: 0, zIndex: 35,
+        background: "var(--paper)",
+        transform: mobileOpen ? "translateY(0)" : "translateY(-100%)",
+        transition: "transform 300ms var(--ease)",
+        paddingTop: 100, paddingInline: 24,
+        display: "flex", flexDirection: "column", gap: 8,
+      }}>
+        {items.map(it => (
+          <button key={it.key} onClick={() => { setRoute(it.key); setMobileOpen(false); }}
+                  style={{
+                    fontFamily: "var(--serif)", fontSize: 40, lineHeight: 1.2,
+                    textAlign: "left", padding: "12px 0",
+                    color: route === it.key ? "var(--ink)" : "var(--ink-muted)",
+                    borderBottom: "1px solid var(--stone)",
+                  }}>
+            {it.label}
+          </button>
+        ))}
+        <button onClick={() => { onOpenContact(); setMobileOpen(false); }}
+                style={{
+                  fontFamily: "var(--serif)", fontSize: 40, lineHeight: 1.2,
+                  textAlign: "left", padding: "12px 0", color: "var(--signal)",
+                  borderBottom: "1px solid var(--stone)",
+                }}>
+          {copy.nav.contact} →
+        </button>
+        <div style={{ marginTop: 32, display: "flex", gap: 16, fontSize: 14 }}>
+          <button onClick={() => setLang("en")} style={{ color: lang === "en" ? "var(--ink)" : "var(--ink-muted)", fontWeight: lang === "en" ? 500 : 400 }}>English</button>
+          <span style={{ color: "var(--stone)" }}>/</span>
+          <button onClick={() => setLang("es")} style={{ color: lang === "es" ? "var(--ink)" : "var(--ink-muted)", fontWeight: lang === "es" ? 500 : 400 }}>Español</button>
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .nav-desktop { display: none !important; }
+          .nav-hamburger { display: flex !important; }
+        }
+      `}</style>
+    </>
+  );
+}
+
+function Footer({ copy, setRoute, onOpenContact }) {
+  return (
+    <footer style={{ background: "var(--slate)", color: "var(--paper)", paddingBlock: 96, marginTop: 0 }}>
+      <div className="container">
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr)",
+          gap: 48,
+        }} className="footer-grid">
+          <div>
+            <Wordmark size={24} onDark />
+            <p style={{ marginTop: 20, fontSize: 14, lineHeight: 1.6, color: "rgba(243,239,230,0.7)", maxWidth: 260 }}>
+              {copy.footer.positioning}
+            </p>
+          </div>
+          <div>
+            <div className="eyebrow on-dark" style={{ marginBottom: 20 }}>{copy.footer.nav}</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {["home", "services", "about", "resources"].map((k, i) => (
+                <button key={k} onClick={() => setRoute(k)} style={{ textAlign: "left", fontSize: 15, color: "var(--paper)" }}>
+                  {copy.footer.navItems[i]}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="eyebrow on-dark" style={{ marginBottom: 20 }}>{copy.footer.legal}</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {copy.footer.legalItems.map(l => (
+                <a key={l} href="#" onClick={e => e.preventDefault()} style={{ fontSize: 15, color: "rgba(243,239,230,0.75)" }}>{l}</a>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="eyebrow on-dark" style={{ marginBottom: 20 }}>{copy.footer.contact}</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, fontSize: 15 }}>
+              <a href={`mailto:${copy.footer.email}`} style={{ color: "var(--paper)", borderBottom: "1px solid rgba(243,239,230,0.4)", paddingBottom: 2, alignSelf: "flex-start" }}>{copy.footer.email}</a>
+              <span style={{ color: "rgba(243,239,230,0.7)" }}>{copy.footer.address}</span>
+              <a href="#" onClick={e => e.preventDefault()} style={{ color: "rgba(243,239,230,0.7)", alignSelf: "flex-start" }}>{copy.footer.linkedin}</a>
+              <button onClick={onOpenContact} style={{ color: "var(--paper)", textAlign: "left", display: "inline-flex", alignItems: "center", gap: 8, marginTop: 8 }}>
+                {copy.footer.book} <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div style={{ marginTop: 96, paddingTop: 24, borderTop: "1px solid rgba(243,239,230,0.12)",
+                      display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12,
+                      fontSize: 13, color: "rgba(243,239,230,0.55)" }}>
+          <span>{copy.footer.copy}</span>
+          <span>buikaelements.com</span>
+        </div>
+      </div>
+      <style>{`
+        @media (max-width: 900px) {
+          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 40px !important; }
+        }
+        @media (max-width: 540px) {
+          .footer-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </footer>
+  );
+}
+
+function CredibilityBar({ items }) {
+  return (
+    <div style={{ background: "var(--paper)", borderBottom: "1px solid var(--stone)", borderTop: "1px solid var(--stone)" }}>
+      <div className="container" style={{ paddingBlock: 20 }}>
+        <div style={{
+          display: "flex", flexWrap: "wrap", gap: "8px 24px",
+          fontSize: 13, color: "var(--ink-muted)", letterSpacing: "0.02em",
+          alignItems: "center", justifyContent: "space-between",
+        }}>
+          {items.map((it, i) => (
+            <React.Fragment key={i}>
+              <span>{it}</span>
+              {i < items.length - 1 && <span style={{ color: "var(--stone)" }} aria-hidden>·</span>}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Statement({ children, eyebrow, align = "left" }) {
+  return (
+    <section style={{ paddingBlock: "var(--rhythm-major)" }}>
+      <div className="container">
+        <div style={{
+          maxWidth: 900,
+          marginInline: align === "center" ? "auto" : 0,
+          textAlign: align,
+        }}>
+          {eyebrow && <div className="eyebrow" style={{ marginBottom: 32 }}>{eyebrow}</div>}
+          <div className="signal-rule" style={{ marginBottom: 24, marginInline: align === "center" ? "auto" : 0 }} />
+          <p className="serif" style={{
+            fontSize: "clamp(28px, 3.2vw, 40px)", lineHeight: 1.22,
+            letterSpacing: "-0.01em", margin: 0, textWrap: "balance",
+          }}>
+            {children}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CtaBand({ head, body, cta, onClick }) {
+  return (
+    <section style={{ background: "var(--slate)", color: "var(--paper)", paddingBlock: 140 }}>
+      <div className="container">
+        <div style={{ maxWidth: 820 }}>
+          <Reveal>
+            <h2 className="serif" style={{
+              fontSize: "clamp(36px, 4.6vw, 56px)", lineHeight: 1.08,
+              letterSpacing: "-0.015em", margin: 0, color: "var(--paper)", textWrap: "balance",
+            }}>
+              {head}
+            </h2>
+            {body && (
+              <p style={{
+                marginTop: 28, fontSize: "clamp(17px, 1.4vw, 19px)", lineHeight: 1.6,
+                color: "rgba(243,239,230,0.75)", maxWidth: 640,
+              }}>{body}</p>
+            )}
+            <div style={{ marginTop: 40 }}>
+              <button className="btn btn-primary-on-dark" onClick={onClick}>
+                {cta} <span className="arr">→</span>
+              </button>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Placeholder({ label, ratio = "4/5", fill = false, sublabel }) {
+  return (
+    <div className="placeholder" style={{
+      aspectRatio: fill ? undefined : ratio,
+      width: "100%",
+      height: fill ? "100%" : undefined,
+      minHeight: fill ? undefined : 120,
+    }}>
+      <span className="ph-label">
+        <span className="ph-dot" />
+        {label}{sublabel && <span style={{ opacity: 0.5, marginLeft: 8 }}>— {sublabel}</span>}
+      </span>
+    </div>
+  );
+}
+
+function ContactModal({ open, onClose, copy }) {
+  const [form, setForm] = useState({ name: "", company: "", email: "", brief: "", country: "", consent: false });
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("no-scroll", open);
+    if (!open) { setSubmitted(false); setErrors({}); }
+  }, [open]);
+
+  useEffect(() => {
+    const onKey = e => { if (e.key === "Escape" && open) onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+
+  const validate = () => {
+    const e = {};
+    if (!form.name.trim()) e.name = true;
+    if (!form.company.trim()) e.company = true;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = true;
+    if (!form.brief.trim() || form.brief.trim().length < 10) e.brief = true;
+    if (!form.consent) e.consent = true;
+    return e;
+  };
+
+  const submit = (e) => {
+    e.preventDefault();
+    const es = validate();
+    setErrors(es);
+    if (Object.keys(es).length === 0) setSubmitted(true);
+  };
+
+  if (!open) return null;
+
+  return (
+    <div style={{
+      position: "fixed", inset: 0, zIndex: 60,
+      background: "rgba(10,10,11,0.55)",
+      display: "flex", alignItems: "flex-end", justifyContent: "center",
+    }} onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} style={{
+        background: "var(--paper)", width: "100%", maxWidth: 720,
+        maxHeight: "92vh", overflowY: "auto",
+        padding: "48px clamp(24px, 4vw, 56px) 56px",
+        animation: "slideUp 300ms var(--ease)",
+      }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32 }}>
+          <div className="eyebrow">{copy.contactModal.eyebrow}</div>
+          <button onClick={onClose} aria-label={copy.contactModal.close}
+                  style={{ fontSize: 13, color: "var(--ink-muted)", display: "inline-flex", gap: 8, alignItems: "center" }}>
+            <span style={{ fontSize: 18, lineHeight: 1 }}>×</span> {copy.contactModal.close}
+          </button>
+        </div>
+
+        {submitted ? (
+          <div style={{ paddingBlock: 40 }}>
+            <div className="signal-rule" style={{ marginBottom: 24 }} />
+            <h2 className="h2" style={{ marginBottom: 16 }}>{copy.contactModal.success}</h2>
+            <p className="lede text-ink-muted">{copy.contactModal.sub}</p>
+          </div>
+        ) : (
+          <>
+            <h2 className="h2" style={{ marginBottom: 16 }}>{copy.contactModal.head}</h2>
+            <p className="lede text-ink-muted" style={{ marginBottom: 40 }}>{copy.contactModal.sub}</p>
+            <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 28 }} noValidate>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }} className="modal-row">
+                <div className={`field ${errors.name ? "err" : ""}`}>
+                  <label>{copy.contactModal.name} <span className="req">*</span></label>
+                  <input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
+                </div>
+                <div className={`field ${errors.company ? "err" : ""}`}>
+                  <label>{copy.contactModal.company} <span className="req">*</span></label>
+                  <input value={form.company} onChange={e => setForm({ ...form, company: e.target.value })} />
+                </div>
+              </div>
+              <div className={`field ${errors.email ? "err" : ""}`}>
+                <label>{copy.contactModal.email} <span className="req">*</span></label>
+                <input type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
+                {errors.email && <span className="err-msg">Please enter a valid email address.</span>}
+              </div>
+              <div className={`field ${errors.brief ? "err" : ""}`}>
+                <label>{copy.contactModal.brief} <span className="req">*</span></label>
+                <textarea rows={4} placeholder={copy.contactModal.briefPh}
+                          value={form.brief} onChange={e => setForm({ ...form, brief: e.target.value })} />
+              </div>
+              <div className="field">
+                <label>{copy.contactModal.country}</label>
+                <input value={form.country} onChange={e => setForm({ ...form, country: e.target.value })} />
+              </div>
+              <label className={`consent ${errors.consent ? "err" : ""}`}>
+                <input type="checkbox" checked={form.consent} onChange={e => setForm({ ...form, consent: e.target.checked })} />
+                <span>{copy.contactModal.consent}</span>
+              </label>
+              <div>
+                <button type="submit" className="btn btn-primary">
+                  {copy.contactModal.submit} <span className="arr">→</span>
+                </button>
+              </div>
+            </form>
+          </>
+        )}
+      </div>
+      <style>{`
+        @keyframes slideUp { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+        @media (max-width: 640px) { .modal-row { grid-template-columns: 1fr !important; } }
+      `}</style>
+    </div>
+  );
+}
+
+Object.assign(window, { Reveal, Wordmark, TopNav, Footer, CredibilityBar, Statement, CtaBand, Placeholder, ContactModal });
+</script>
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     INLINED: home.jsx
+     ═════════════════════════════════════════════════════════════════════ -->
+<script type="text/babel" data-presets="env,react">
+function HeroTypographic({ copy, onCta, variant = "standard" }) {
+  const baseSlate = {
+    background: "var(--slate)", color: "var(--paper)", position: "relative",
+    minHeight: "min(860px, 100dvh)", display: "flex", alignItems: "center",
+    paddingTop: 140, paddingBottom: 120, overflow: "hidden",
+  };
+
+  if (variant === "stacked") {
+    return (
+      <section style={baseSlate}>
+        <BgTexture />
+        <div className="container" style={{ position: "relative", width: "100%" }}>
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24,
+          }}>
+            <div style={{ gridColumn: "2 / span 10" }} className="hero-inner">
+              <div className="eyebrow on-dark" style={{ marginBottom: 40 }}>
+                <span className="dot" style={{ color: "var(--signal)" }}>●</span>&nbsp;&nbsp;{copy.home.heroEyebrow}
+              </div>
+              <h1 className="serif" style={{
+                fontSize: "clamp(56px, 9vw, 116px)", lineHeight: 0.98, letterSpacing: "-0.035em",
+                fontWeight: 400, margin: 0, color: "var(--paper)", textWrap: "balance",
+              }}>
+                {copy.home.heroHeadline[0]}<br/>
+                <span style={{ color: "rgba(243,239,230,0.55)" }}>{copy.home.heroHeadline[1]}</span>
+              </h1>
+              <div style={{
+                display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48,
+                marginTop: 80, alignItems: "end",
+              }} className="hero-stacked-row">
+                <p style={{
+                  fontSize: "clamp(16px, 1.3vw, 19px)", lineHeight: 1.55,
+                  color: "rgba(243,239,230,0.78)", maxWidth: 520, margin: 0,
+                }}>{copy.home.heroSub}</p>
+                <div style={{ justifySelf: "start" }}>
+                  <button className="btn btn-primary-on-dark" onClick={onCta}>
+                    {copy.home.heroCta} <span className="arr">→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <HeroFoot lang="BUIKAELEMENTS.COM" />
+        </div>
+        <style>{`@media (max-width: 760px) { .hero-stacked-row { grid-template-columns: 1fr !important; gap: 32px !important; } }`}</style>
+      </section>
+    );
+  }
+
+  if (variant === "indexed") {
+    return (
+      <section style={baseSlate}>
+        <BgTexture />
+        <div className="container" style={{ position: "relative", width: "100%" }}>
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24,
+          }}>
+            <div style={{ gridColumn: "2 / span 2", borderTop: "1px solid rgba(243,239,230,0.2)", paddingTop: 24 }} className="hero-idx-col">
+              <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(243,239,230,0.55)", marginBottom: 140 }}>
+                Index<br/>01 / 04
+              </div>
+              <div className="eyebrow on-dark">
+                {copy.home.heroEyebrow}
+              </div>
+            </div>
+            <div style={{ gridColumn: "4 / span 8", borderTop: "1px solid rgba(243,239,230,0.2)", paddingTop: 24 }} className="hero-idx-main">
+              <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(243,239,230,0.55)", marginBottom: 140 }}>
+                Da Nang · Vietnam &nbsp;&nbsp;—&nbsp;&nbsp; 2026
+              </div>
+              <h1 className="serif" style={{
+                fontSize: "clamp(44px, 6.2vw, 78px)", lineHeight: 1.05, letterSpacing: "-0.022em",
+                fontWeight: 400, margin: 0, color: "var(--paper)", textWrap: "balance",
+              }}>
+                {copy.home.heroHeadline[0]} {copy.home.heroHeadline[1]}
+              </h1>
+              <p style={{
+                marginTop: 40, fontSize: "clamp(16px, 1.2vw, 18px)", lineHeight: 1.6,
+                color: "rgba(243,239,230,0.78)", maxWidth: 620,
+              }}>{copy.home.heroSub}</p>
+              <div style={{ marginTop: 48 }}>
+                <button className="btn btn-primary-on-dark" onClick={onCta}>
+                  {copy.home.heroCta} <span className="arr">→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <HeroFoot lang="BUIKAELEMENTS.COM" />
+        </div>
+        <style>{`@media (max-width: 900px) {
+          .hero-idx-col { grid-column: 2 / -2 !important; }
+          .hero-idx-main { grid-column: 2 / -2 !important; padding-top: 8px !important; border-top: 0 !important; }
+          .hero-idx-col > div:nth-child(1) { margin-bottom: 32px !important; }
+          .hero-idx-main > div:nth-child(1) { margin-bottom: 32px !important; }
+        }`}</style>
+      </section>
+    );
+  }
+
+  return (
+    <section style={baseSlate}>
+      <BgTexture />
+      <div className="container" style={{ position: "relative", width: "100%" }}>
+        <div style={{
+          display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24,
+        }}>
+          <div style={{ gridColumn: "2 / span 8" }} className="hero-inner">
+            <div className="eyebrow on-dark" style={{ marginBottom: 56 }}>
+              <span style={{ color: "var(--signal)" }}>●</span>&nbsp;&nbsp;{copy.home.heroEyebrow}
+            </div>
+            <h1 className="serif" style={{
+              fontSize: "clamp(48px, 7.4vw, 92px)", lineHeight: 1.03, letterSpacing: "-0.028em",
+              fontWeight: 400, margin: 0, color: "var(--paper)", textWrap: "balance",
+            }}>
+              {copy.home.heroHeadline[0]}<br/>{copy.home.heroHeadline[1]}
+            </h1>
+            <p style={{
+              marginTop: 40, fontSize: "clamp(17px, 1.4vw, 20px)", lineHeight: 1.55,
+              color: "rgba(243,239,230,0.78)", maxWidth: 600,
+            }}>{copy.home.heroSub}</p>
+            <div style={{ marginTop: 48 }}>
+              <button className="btn btn-primary-on-dark" onClick={onCta}>
+                {copy.home.heroCta} <span className="arr">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <HeroFoot lang="BUIKAELEMENTS.COM" />
+      </div>
+      <style>{`@media (max-width: 760px) { .hero-inner { grid-column: 1 / -1 !important; } }`}</style>
+    </section>
+  );
+}
+
+function BgTexture() {
+  return (
+    <div aria-hidden style={{
+      position: "absolute", inset: 0, pointerEvents: "none",
+      backgroundImage:
+        "repeating-linear-gradient(0deg, transparent 0, transparent 48px, rgba(243,239,230,0.018) 48px, rgba(243,239,230,0.018) 49px)",
+      opacity: 0.7,
+    }} />
+  );
+}
+
+function HeroFoot({ lang }) {
+  return (
+    <div style={{
+      position: "absolute", left: 0, right: 0, bottom: -48, paddingInline: "clamp(24px, 4vw, 48px)",
+      display: "flex", justifyContent: "space-between", alignItems: "center",
+      fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase",
+      color: "rgba(243,239,230,0.4)", pointerEvents: "none",
+    }}>
+      <span>Est. 2009 — 16 YRS</span>
+      <span>{lang}</span>
+    </div>
+  );
+}
+
+function PositioningBlock({ copy }) {
+  return (
+    <section className="section">
+      <div className="container">
+        <div style={{
+          display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24,
+        }}>
+          <div style={{ gridColumn: "2 / span 3" }} className="pos-left">
+            <div className="eyebrow">{copy.home.positioningEyebrow}</div>
+          </div>
+          <div style={{ gridColumn: "5 / span 7" }} className="pos-right">
+            <Reveal>
+              <h2 className="h2" style={{ marginBottom: 40 }}>
+                {(() => {
+                  const parts = copy.home.positioningHead.split(/\.\s+/);
+                  return parts.length >= 2 ? (
+                    <>
+                      <span style={{ color: "var(--ink-muted)" }}>{parts[0]}.</span><br/>
+                      <span>{parts.slice(1).join(". ")}</span>
+                    </>
+                  ) : copy.home.positioningHead;
+                })()}
+              </h2>
+              {copy.home.positioningBody.map((p, i) => (
+                <p key={i} style={{
+                  fontSize: "clamp(17px, 1.4vw, 19px)", lineHeight: 1.6,
+                  margin: i === 0 ? "0 0 24px" : 0, textWrap: "pretty",
+                }}>{p}</p>
+              ))}
+            </Reveal>
+          </div>
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) {
+        .pos-left { grid-column: 1 / -1 !important; margin-bottom: 32px; }
+        .pos-right { grid-column: 1 / -1 !important; }
+      }`}</style>
+    </section>
+  );
+}
+
+function ContrastBlock({ copy }) {
+  const c = copy.home.contrast;
+  return (
+    <section style={{ paddingBlock: "var(--rhythm-sub)" }}>
+      <div className="container">
+        <Reveal>
+          <div className="eyebrow" style={{ marginBottom: 48 }}>{copy.home.contrastEyebrow}</div>
+          <div style={{
+            display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0,
+            borderTop: "1px solid var(--ink)",
+          }} className="contrast-grid">
+            <div style={{
+              padding: "48px 48px 48px 0", background: "transparent",
+              color: "var(--ink-muted)",
+            }} className="contrast-cell">
+              <div style={{
+                fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.14em",
+                textTransform: "uppercase", marginBottom: 24,
+              }}>{c.left.label}</div>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 20 }}>
+                {c.left.lines.map((l, i) => (
+                  <li key={i} className="serif" style={{ fontSize: "clamp(22px, 2.1vw, 28px)", lineHeight: 1.25, letterSpacing: "-0.005em" }}>{l}</li>
+                ))}
+              </ul>
+            </div>
+            <div style={{
+              padding: "48px", background: "transparent",
+              borderLeft: "2px solid var(--signal)",
+              color: "var(--ink)",
+            }} className="contrast-cell">
+              <div style={{
+                fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.14em",
+                textTransform: "uppercase", marginBottom: 24, color: "var(--signal)",
+              }}>{c.right.label}</div>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 20 }}>
+                {c.right.lines.map((l, i) => (
+                  <li key={i} className="serif" style={{ fontSize: "clamp(22px, 2.1vw, 28px)", lineHeight: 1.25, letterSpacing: "-0.005em" }}>{l}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+      <style>{`@media (max-width: 760px) {
+        .contrast-grid { grid-template-columns: 1fr !important; }
+        .contrast-cell { padding: 32px !important; padding-left: 0 !important; }
+        .contrast-cell + .contrast-cell { padding: 32px !important; }
+      }`}</style>
+    </section>
+  );
+}
+
+function StepsBlock({ copy }) {
+  return (
+    <section className="section" style={{ background: "var(--stone-soft)" }}>
+      <div className="container">
+        <div style={{ marginBottom: 72 }}>
+          <div className="eyebrow" style={{ marginBottom: 20 }}>{copy.home.stepsEyebrow}</div>
+          <h2 className="h2" style={{ maxWidth: 760 }}>{copy.home.stepsHead}</h2>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 32 }} className="steps-grid">
+          {copy.home.steps.map((s, i) => (
+            <Reveal key={i} delay={i * 80}>
+              <div style={{ borderTop: "1px solid var(--ink)", paddingTop: 32 }}>
+                <div className="num-serif" style={{ fontSize: 52, lineHeight: 1, marginBottom: 24, color: "var(--ink)" }}>{s.n}</div>
+                <h3 className="serif" style={{ fontSize: "clamp(22px, 1.9vw, 26px)", lineHeight: 1.25, letterSpacing: "-0.005em", marginBottom: 20, textWrap: "balance" }}>
+                  {s.title}
+                </h3>
+                <p style={{ fontSize: 16, lineHeight: 1.6, color: "var(--ink-muted)", margin: 0, textWrap: "pretty" }}>
+                  {s.body}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) { .steps-grid { grid-template-columns: 1fr !important; gap: 48px !important; } }`}</style>
+    </section>
+  );
+}
+
+function WhyBlock({ copy }) {
+  return (
+    <section className="section">
+      <div className="container">
+        <div style={{ marginBottom: 72 }}>
+          <div className="eyebrow" style={{ marginBottom: 20 }}>{copy.home.whyEyebrow}</div>
+          <h2 className="h2" style={{ maxWidth: 760 }}>{copy.home.whyHead}</h2>
+        </div>
+        <div style={{
+          display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0,
+          borderTop: "1px solid var(--ink)",
+        }} className="why-grid">
+          {copy.home.why.map((w, i) => (
+            <Reveal key={i} delay={i * 60}>
+              <div style={{
+                padding: "40px 48px 40px 0",
+                borderRight: i % 2 === 0 ? "1px solid var(--stone)" : "none",
+                borderBottom: i < 2 ? "1px solid var(--stone)" : "none",
+                paddingLeft: i % 2 === 1 ? 48 : 0,
+              }} className="why-cell">
+                <div style={{
+                  fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.14em",
+                  textTransform: "uppercase", color: "var(--ink-muted)", marginBottom: 16,
+                }}>0{i+1}</div>
+                <h3 className="serif" style={{ fontSize: 26, lineHeight: 1.22, letterSpacing: "-0.005em", marginBottom: 16 }}>
+                  {w.label}
+                </h3>
+                <p style={{ fontSize: 16, lineHeight: 1.6, color: "var(--ink-muted)", margin: 0, textWrap: "pretty", maxWidth: 480 }}>
+                  {w.body}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+      <style>{`@media (max-width: 760px) {
+        .why-grid { grid-template-columns: 1fr !important; }
+        .why-cell { padding: 32px 0 !important; border-right: 0 !important; border-bottom: 1px solid var(--stone) !important; }
+        .why-cell:last-child { border-bottom: 0 !important; }
+      }`}</style>
+    </section>
+  );
+}
+
+function ServicesPreview({ copy, setRoute }) {
+  return (
+    <section className="section" style={{ background: "var(--paper)" }}>
+      <div className="container">
+        <div style={{ marginBottom: 72, display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 32 }} className="sp-head">
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 20 }}>{copy.services.eyebrow}</div>
+            <h2 className="h2" style={{ maxWidth: 640 }}>{copy.services.head}</h2>
+          </div>
+          <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-muted)" }}>
+            01 · 02 · 03
+          </div>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {copy.services.list.map((s, i) => (
+            <Reveal key={i} delay={i * 60}>
+              <article style={{
+                display: "grid", gridTemplateColumns: "72px 1fr minmax(auto, 200px)",
+                gap: 32, padding: "48px 0",
+                borderTop: "1px solid var(--stone)",
+              }} className="sp-row">
+                <div className="num-serif" style={{ fontSize: 36, lineHeight: 1, color: "var(--ink-muted)" }}>0{i+1}</div>
+                <div>
+                  <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-muted)", marginBottom: 12 }}>
+                    {s.situation}
+                  </div>
+                  <h3 className="serif" style={{ fontSize: "clamp(24px, 2.4vw, 34px)", lineHeight: 1.18, letterSpacing: "-0.008em", marginBottom: 16 }}>
+                    {s.title}
+                  </h3>
+                  <p style={{ fontSize: 17, lineHeight: 1.6, color: "var(--ink-muted)", margin: 0, maxWidth: 680, textWrap: "pretty" }}>
+                    {s.intro}
+                  </p>
+                </div>
+                <div style={{ justifySelf: "end", alignSelf: "center" }} className="sp-arrow">
+                  <span className="link-cta" style={{ color: "var(--signal)", fontSize: 14 }}>Read more →</span>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+      <style>{`@media (max-width: 900px) {
+        .sp-head { flex-direction: column !important; align-items: flex-start !important; }
+        .sp-row { grid-template-columns: 48px 1fr !important; gap: 16px !important; padding: 32px 0 !important; }
+        .sp-arrow { display: none !important; }
+      }`}</style>
+    </section>
+  );
+}
+
+function HomePage({ copy, onCta, heroVariant }) {
+  return (
+    <>
+      <HeroTypographic copy={copy} onCta={onCta} variant={heroVariant} />
+      <CredibilityBar items={copy.home.credibility} />
+      <PositioningBlock copy={copy} />
+      <ContrastBlock copy={copy} />
+      <StepsBlock copy={copy} />
+      <WhyBlock copy={copy} />
+      <ServicesPreview copy={copy} />
+      <CtaBand head={copy.home.bottomCta.head} body={copy.home.bottomCta.body} cta={copy.home.bottomCta.cta} onClick={onCta} />
+    </>
+  );
+}
+
+Object.assign(window, { HomePage });
+</script>
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     INLINED: about.jsx
+     ═════════════════════════════════════════════════════════════════════ -->
+<script type="text/babel" data-presets="env,react">
+function AboutPage({ copy, onCta }) {
+  return (
+    <>
+      <section style={{ paddingTop: 180, paddingBottom: 96 }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
+            <div style={{ gridColumn: "2 / span 10" }} className="about-hero-inner">
+              <div className="eyebrow" style={{ marginBottom: 40 }}>{copy.about.eyebrow}</div>
+              <h1 className="h1" style={{ maxWidth: 900, marginBottom: 32 }}>{copy.about.head}</h1>
+              <p className="lede" style={{ maxWidth: 720, color: "var(--ink-muted)" }}>{copy.about.sub}</p>
+            </div>
+          </div>
+        </div>
+        <style>{`@media (max-width: 760px) { .about-hero-inner { grid-column: 1 / -1 !important; } }`}</style>
+      </section>
+
+      <section style={{ paddingBlock: "var(--rhythm-sub)" }}>
+        <div className="container">
+          <div style={{
+            display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.4fr)", gap: 80,
+          }} className="bio-grid">
+            <div>
+              <Placeholder label="SIMON PORTRAIT — 4:5" ratio="4/5" sublabel="To commission" />
+              <div style={{
+                display: "flex", justifyContent: "space-between",
+                fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.14em",
+                textTransform: "uppercase", color: "var(--ink-muted)",
+                marginTop: 12, paddingTop: 12, borderTop: "1px solid var(--stone)",
+              }}>
+                <span>Fig. 01</span>
+                <span>Da Nang · 2026</span>
+              </div>
+            </div>
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 16, color: "var(--signal)" }}>Founder</div>
+              <h2 className="serif" style={{
+                fontSize: "clamp(28px, 2.6vw, 36px)", lineHeight: 1.15,
+                letterSpacing: "-0.005em", margin: 0, marginBottom: 8,
+              }}>{copy.about.bio.name}</h2>
+              <div style={{ fontSize: 15, color: "var(--ink-muted)", marginBottom: 48 }}>{copy.about.bio.title}</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+                {copy.about.bio.paragraphs.map((p, i) => (
+                  <p key={i} style={{
+                    fontSize: "clamp(17px, 1.3vw, 19px)", lineHeight: 1.6, margin: 0,
+                    color: "var(--ink)", textWrap: "pretty",
+                  }}>{p}</p>
+                ))}
+              </div>
+              <div style={{
+                marginTop: 48, paddingTop: 24, borderTop: "1px solid var(--stone)",
+                fontFamily: "var(--mono)", fontSize: 12, letterSpacing: "0.08em",
+                textTransform: "uppercase", color: "var(--ink-muted)",
+              }}>
+                {copy.about.bio.location}
+              </div>
+            </div>
+          </div>
+        </div>
+        <style>{`@media (max-width: 900px) { .bio-grid { grid-template-columns: 1fr !important; gap: 48px !important; } }`}</style>
+      </section>
+
+      <section style={{ paddingBlock: "var(--rhythm-sub)", borderTop: "1px solid var(--stone)" }}>
+        <div className="container">
+          <div className="eyebrow" style={{ marginBottom: 56 }}>{copy.about.statsEyebrow}</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }} className="stats-grid">
+            {copy.about.stats.map((s, i) => (
+              <Reveal key={i} delay={i * 80}>
+                <div style={{ borderTop: "1px solid var(--ink)", paddingTop: 24 }}>
+                  <div className="num-serif" style={{
+                    fontSize: "clamp(64px, 8vw, 108px)", lineHeight: 1, color: "var(--ink)",
+                    marginBottom: 20,
+                  }}>{s.n}</div>
+                  <div style={{ fontSize: 13, color: "var(--ink-muted)", letterSpacing: "0.02em", maxWidth: 180, textWrap: "pretty" }}>
+                    {s.label}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+        <style>{`@media (max-width: 760px) { .stats-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; } }`}</style>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
+            <div style={{ gridColumn: "2 / span 3" }} className="op-left">
+              <div className="eyebrow" style={{ marginBottom: 20 }}>{copy.about.operateEyebrow}</div>
+            </div>
+            <div style={{ gridColumn: "5 / span 7" }} className="op-right">
+              <h2 className="h2" style={{ marginBottom: 56, maxWidth: 600 }}>{copy.about.operateHead}</h2>
+              <ol className="num-list">
+                {copy.about.operate.map((p, i) => (
+                  <li key={i}>
+                    <p style={{
+                      fontSize: "clamp(17px, 1.3vw, 19px)", lineHeight: 1.55, margin: 0,
+                      color: "var(--ink)", textWrap: "pretty",
+                    }}>{p}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+        <style>{`@media (max-width: 900px) {
+          .op-left { grid-column: 1 / -1 !important; margin-bottom: 24px; }
+          .op-right { grid-column: 1 / -1 !important; }
+        }`}</style>
+      </section>
+
+      <Statement eyebrow="Principle">{copy.about.statement}</Statement>
+
+      <CtaBand head={copy.about.bottomCta.head} body={copy.about.bottomCta.body} cta={copy.about.bottomCta.cta} onClick={onCta} />
+    </>
+  );
+}
+
+Object.assign(window, { AboutPage });
+</script>
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     INLINED: services.jsx
+     ═════════════════════════════════════════════════════════════════════ -->
+<script type="text/babel" data-presets="env,react">
+function ServicesPage({ copy, onCta }) {
+  return (
+    <>
+      <section style={{ paddingTop: 180, paddingBottom: 96 }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
+            <div style={{ gridColumn: "2 / span 10" }} className="sv-hero">
+              <div className="eyebrow" style={{ marginBottom: 40 }}>{copy.services.eyebrow}</div>
+              <h1 className="h1" style={{ maxWidth: 1000, marginBottom: 32 }}>{copy.services.head}</h1>
+              <p className="lede" style={{ maxWidth: 720, color: "var(--ink-muted)" }}>{copy.services.sub}</p>
+            </div>
+          </div>
+        </div>
+        <style>{`@media (max-width: 760px) { .sv-hero { grid-column: 1 / -1 !important; } }`}</style>
+      </section>
+
+      <section>
+        <div className="container">
+          {copy.services.list.map((s, i) => (
+            <Reveal key={i}>
+              <article style={{
+                paddingBlock: 96,
+                borderTop: "1px solid var(--ink)",
+              }}>
+                <div style={{
+                  display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24,
+                }}>
+                  <div style={{ gridColumn: "1 / span 4" }} className="sv-meta">
+                    <div className="num-serif" style={{
+                      fontSize: "clamp(56px, 7vw, 88px)", lineHeight: 1, color: "var(--ink-muted)",
+                      marginBottom: 24,
+                    }}>0{i+1}</div>
+                    <div style={{
+                      fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.12em",
+                      textTransform: "uppercase", color: "var(--ink-muted)",
+                      lineHeight: 1.5, maxWidth: 260,
+                    }}>
+                      {s.situation}
+                    </div>
+                  </div>
+                  <div style={{ gridColumn: "5 / span 8" }} className="sv-body">
+                    <h2 className="h2" style={{ marginBottom: 28, maxWidth: 780 }}>{s.title}</h2>
+                    <p style={{
+                      fontSize: "clamp(17px, 1.35vw, 19px)", lineHeight: 1.6, maxWidth: 680,
+                      marginBottom: 40, textWrap: "pretty",
+                    }}>{s.intro}</p>
+                    <ul style={{
+                      listStyle: "none", margin: 0, padding: 0,
+                      borderTop: "1px solid var(--stone)",
+                      maxWidth: 720,
+                    }}>
+                      {s.bullets.map((b, j) => (
+                        <li key={j} style={{
+                          borderBottom: "1px solid var(--stone)",
+                          padding: "18px 0",
+                          display: "grid", gridTemplateColumns: "32px 1fr", gap: 12,
+                          fontSize: 16, lineHeight: 1.55, color: "var(--ink)",
+                        }}>
+                          <span style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.1em", color: "var(--signal)", paddingTop: 4 }}>
+                            0{j+1}
+                          </span>
+                          <span style={{ textWrap: "pretty" }}>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div style={{
+                      marginTop: 40, paddingTop: 24, borderTop: "1px solid var(--ink)",
+                      maxWidth: 720,
+                    }}>
+                      <div className="eyebrow" style={{ marginBottom: 16, color: "var(--signal)" }}>Outcome</div>
+                      <p className="serif" style={{
+                        fontSize: "clamp(20px, 1.9vw, 24px)", lineHeight: 1.35,
+                        letterSpacing: "-0.005em", margin: 0, textWrap: "balance",
+                      }}>{s.outcome}</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <CtaBand
+        head="Not sure which service fits your situation?"
+        body="Tell us where you are and what you're trying to solve. We'll suggest the right structure in a first call."
+        cta="Book a call"
+        onClick={onCta}
+      />
+
+      <style>{`@media (max-width: 900px) {
+        .sv-meta, .sv-body { grid-column: 1 / -1 !important; }
+        .sv-meta { margin-bottom: 32px; }
+      }`}</style>
+    </>
+  );
+}
+
+Object.assign(window, { ServicesPage });
+</script>
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     INLINED: resources.jsx
+     ═════════════════════════════════════════════════════════════════════ -->
+<script type="text/babel" data-presets="env,react">
+function ResourcesPage({ copy, onCta, lang, setRoute }) {
+  const [filter, setFilter] = React.useState(copy.resources.filters[0]);
+  const [email, setEmail] = React.useState("");
+  const [subscribed, setSubscribed] = React.useState(false);
+  const [emailErr, setEmailErr] = React.useState(false);
+
+  React.useEffect(() => { setFilter(copy.resources.filters[0]); }, [lang]);
+
+  const filtered = React.useMemo(() => {
+    const f = filter;
+    const all = copy.resources.filters[0];
+    if (f === all) return copy.resources.articles;
+    return copy.resources.articles.filter(a => {
+      if (f === "Essays" || f === "Ensayos") return a.category === "Essay" || a.category === "Ensayo";
+      if (f === "Whitepapers") return a.category === "Whitepaper";
+      if (f === "Field notes" || f === "Notas de campo") return a.category === "Field note" || a.category === "Nota de campo";
+      return true;
+    });
+  }, [filter, copy]);
+
+  const submitNewsletter = (e) => {
+    e.preventDefault();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setEmailErr(true); return; }
+    setEmailErr(false);
+    setSubscribed(true);
+  };
+
+  return (
+    <>
+      <section style={{ paddingTop: 180, paddingBottom: 72 }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
+            <div style={{ gridColumn: "2 / span 10" }} className="res-hero">
+              <div className="eyebrow" style={{ marginBottom: 40 }}>{copy.resources.eyebrow}</div>
+              <h1 className="h1" style={{ maxWidth: 1100, marginBottom: 32 }}>{copy.resources.head}</h1>
+              <p className="lede" style={{ maxWidth: 640, color: "var(--ink-muted)" }}>{copy.resources.sub}</p>
+            </div>
+          </div>
+        </div>
+        <style>{`@media (max-width: 760px) { .res-hero { grid-column: 1 / -1 !important; } }`}</style>
+      </section>
+
+      <section style={{ paddingTop: 24, paddingBottom: 24, borderTop: "1px solid var(--stone)", borderBottom: "1px solid var(--stone)", position: "sticky", top: 72, background: "color-mix(in srgb, var(--paper) 96%, transparent)", backdropFilter: "blur(8px)", zIndex: 20 }}>
+        <div className="container">
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+              {copy.resources.filters.map(f => (
+                <button key={f} onClick={() => setFilter(f)}
+                  style={{
+                    fontSize: 13, padding: "8px 16px",
+                    color: filter === f ? "var(--paper)" : "var(--ink)",
+                    background: filter === f ? "var(--ink)" : "transparent",
+                    border: "1px solid " + (filter === f ? "var(--ink)" : "var(--stone)"),
+                    borderRadius: 2,
+                    transition: "all 180ms var(--ease)",
+                  }}>
+                  {f}
+                </button>
+              ))}
+            </div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-muted)" }}>
+              {filtered.length} / {copy.resources.articles.length}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ paddingTop: 80, paddingBottom: 120 }}>
+        <div className="container">
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {filtered.map((a, i) => {
+              const isWp = a.category === "Whitepaper";
+              return (
+                <Reveal key={`${a.title}-${i}`} delay={i * 40}>
+                  <article style={{
+                    display: "grid", gridTemplateColumns: "140px 1fr 180px",
+                    gap: 32, padding: "40px 0",
+                    borderTop: i === 0 ? "1px solid var(--ink)" : "1px solid var(--stone)",
+                    cursor: "pointer",
+                  }} className="res-row" onClick={() => setRoute && setRoute("resource:" + window.slugify(a.title))}>
+                    <div>
+                      <div style={{
+                        fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        color: isWp ? "var(--signal)" : "var(--ink-muted)",
+                        marginBottom: 8,
+                      }}>
+                        {isWp && "↓ "}{a.category}
+                      </div>
+                      <div style={{ fontSize: 13, color: "var(--ink-muted)" }}>{a.date}</div>
+                    </div>
+                    <div>
+                      <h3 className="serif" style={{
+                        fontSize: "clamp(22px, 2vw, 28px)", lineHeight: 1.2,
+                        letterSpacing: "-0.005em", marginBottom: 12, textWrap: "balance",
+                      }}>
+                        {a.title}
+                      </h3>
+                      <p style={{ fontSize: 16, lineHeight: 1.55, color: "var(--ink-muted)", margin: 0, maxWidth: 640, textWrap: "pretty" }}>
+                        {a.excerpt}
+                      </p>
+                      {isWp && (
+                        <div style={{ marginTop: 14, fontSize: 13, color: "var(--ink-muted)", fontStyle: "italic" }}>
+                          {lang === "es" ? "Descarga requiere email" : "Download requires email"}
+                        </div>
+                      )}
+                    </div>
+                    <div style={{ textAlign: "right", fontSize: 13, color: "var(--ink-muted)" }}>
+                      <div>{a.read}</div>
+                      <div style={{ marginTop: 6, fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.1em" }}>{a.lang}</div>
+                      <div style={{ marginTop: 16, color: "var(--signal)", fontSize: 14 }}>→</div>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
+            {filtered.length === 0 && (
+              <div style={{ padding: "80px 0", textAlign: "center", color: "var(--ink-muted)" }}>
+                No resources match this filter yet.
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ background: "var(--stone-soft)", paddingBlock: 96 }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 48, alignItems: "center" }} className="nl-grid">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 20 }}>Newsletter</div>
+              <h3 className="serif" style={{ fontSize: "clamp(26px, 2.4vw, 34px)", lineHeight: 1.2, letterSpacing: "-0.008em", margin: 0, textWrap: "balance" }}>
+                {copy.resources.newsletter.head}
+              </h3>
+            </div>
+            <div>
+              {subscribed ? (
+                <div style={{ fontFamily: "var(--mono)", fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--signal)" }}>
+                  ✓ {lang === "es" ? "Suscrito. Te hemos enviado un email de confirmación." : "Subscribed. Check your inbox for a confirmation email."}
+                </div>
+              ) : (
+                <form onSubmit={submitNewsletter} style={{ display: "flex", gap: 0, alignItems: "stretch", borderBottom: "1px solid var(--ink)" }}>
+                  <input type="email" value={email} onChange={e => { setEmail(e.target.value); setEmailErr(false); }}
+                         placeholder={copy.resources.newsletter.placeholder}
+                         style={{
+                           flex: 1, border: 0, background: "transparent",
+                           padding: "14px 0", fontSize: 17, outline: "none",
+                           color: emailErr ? "#A33" : "var(--ink)",
+                         }} />
+                  <button type="submit" style={{
+                    background: "var(--ink)", color: "var(--paper)",
+                    padding: "0 24px", fontSize: 14, fontWeight: 500,
+                    display: "inline-flex", alignItems: "center", gap: 8,
+                  }}>
+                    {copy.resources.newsletter.cta} <span>→</span>
+                  </button>
+                </form>
+              )}
+              {emailErr && <div style={{ color: "#A33", fontSize: 13, marginTop: 8 }}>Please enter a valid email.</div>}
+            </div>
+          </div>
+        </div>
+        <style>{`@media (max-width: 900px) { .nl-grid { grid-template-columns: 1fr !important; } }`}</style>
+      </section>
+
+      <style>{`@media (max-width: 760px) {
+        .res-row { grid-template-columns: 1fr !important; gap: 12px !important; padding: 28px 0 !important; }
+        .res-row > div:last-child { text-align: left !important; }
+      }`}</style>
+    </>
+  );
+}
+
+Object.assign(window, { ResourcesPage });
+</script>
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     INLINED: resource-detail.jsx
+     ═════════════════════════════════════════════════════════════════════ -->
+<script type="text/babel" data-presets="env,react">
+function slugify(s) {
+  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").slice(0, 80);
+}
+
+function ResourceDetailPage({ copy, lang, slug, setRoute, onCta }) {
+  const article = React.useMemo(() => {
+    const list = copy.resources.articles;
+    return list.find(a => slugify(a.title) === slug) || list[0];
+  }, [slug, copy]);
+
+  const isWp = article.category === "Whitepaper";
+  const isGated = !!article.gated;
+
+  const [email, setEmail] = React.useState("");
+  const [consent, setConsent] = React.useState(false);
+  const [errs, setErrs] = React.useState({});
+  const [delivered, setDelivered] = React.useState(false);
+
+  const submit = (e) => {
+    e.preventDefault();
+    const next = {};
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) next.email = true;
+    if (!consent) next.consent = true;
+    setErrs(next);
+    if (Object.keys(next).length === 0) setDelivered(true);
+  };
+
+  const related = copy.resources.articles
+    .filter(a => a.category === article.category && a.title !== article.title)
+    .slice(0, 2);
+
+  const placeholderBody = lang === "es"
+    ? [
+        "Esta página es una vista previa. El cuerpo del documento se gestionará desde Sanity una vez integrado el CMS.",
+        "Mientras tanto, el resumen y los metadatos provienen del documento de copy. La descarga del PDF está sujeta a verificación de email; el enlace se envía a tu bandeja, no se sirve directamente.",
+      ]
+    : [
+        "This page is a preview. The document body will be managed in Sanity once the CMS is wired up.",
+        "Meanwhile, the abstract and metadata come from the copy document. PDF downloads are gated by email verification; the link is sent to your inbox rather than served directly.",
+      ];
+
+  return (
+    <>
+      <section style={{ paddingTop: 180, paddingBottom: 64 }}>
+        <div className="container">
+          <button onClick={() => setRoute("resources")}
+                  className="mono"
+                  style={{
+                    fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase",
+                    color: "var(--ink-muted)", marginBottom: 48, cursor: "pointer",
+                    display: "inline-flex", alignItems: "center", gap: 8,
+                  }}>
+            ← {lang === "es" ? "Recursos" : "Resources"}
+          </button>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
+            <div style={{ gridColumn: "2 / span 10" }} className="rd-head">
+              <div className="eyebrow" style={{ marginBottom: 32, color: isWp ? "var(--signal)" : undefined }}>
+                <span>{article.category}</span>
+                <span style={{ margin: "0 12px", color: "var(--ink-faint)" }}>·</span>
+                <span style={{ color: "var(--ink-muted)" }}>{article.date}</span>
+              </div>
+
+              <h1 className="h1" style={{ marginBottom: 40, maxWidth: 1100 }}>{article.title}</h1>
+
+              <p className="lede" style={{ maxWidth: 720, color: "var(--ink-muted)" }}>{article.excerpt}</p>
+
+              <dl style={{
+                display: "grid", gridTemplateColumns: "repeat(4, auto)", gap: "12px 48px",
+                margin: "56px 0 0", padding: 0,
+                borderTop: "1px solid var(--stone)", paddingTop: 24,
+              }} className="rd-meta">
+                <div>
+                  <dt className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: 4 }}>
+                    {lang === "es" ? "Autor" : "Author"}
+                  </dt>
+                  <dd style={{ margin: 0, fontSize: 14 }}>Simon Buika</dd>
+                </div>
+                <div>
+                  <dt className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: 4 }}>
+                    {lang === "es" ? "Formato" : "Format"}
+                  </dt>
+                  <dd style={{ margin: 0, fontSize: 14 }}>{article.read}</dd>
+                </div>
+                <div>
+                  <dt className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: 4 }}>
+                    {lang === "es" ? "Idiomas" : "Languages"}
+                  </dt>
+                  <dd style={{ margin: 0, fontSize: 14 }}>{article.lang}</dd>
+                </div>
+                <div>
+                  <dt className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-faint)", marginBottom: 4 }}>
+                    {lang === "es" ? "Publicado" : "Published"}
+                  </dt>
+                  <dd style={{ margin: 0, fontSize: 14 }}>{article.date}</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <style>{`
+          @media (max-width: 760px) {
+            .rd-head { grid-column: 1 / -1 !important; }
+            .rd-meta { grid-template-columns: repeat(2, auto) !important; gap: 20px 32px !important; }
+          }
+        `}</style>
+      </section>
+
+      <section style={{ paddingBottom: 96 }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
+            <div style={{ gridColumn: "2 / span 7" }} className="rd-body">
+              {placeholderBody.map((p, i) => (
+                <p key={i} className="body" style={{ marginBottom: 24, color: "var(--ink-muted)", maxWidth: 680 }}>{p}</p>
+              ))}
+
+              <div style={{
+                marginTop: 48, padding: "20px 24px",
+                borderLeft: "2px solid var(--signal)", background: "var(--stone-soft)",
+              }}>
+                <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--signal)", marginBottom: 6 }}>
+                  {lang === "es" ? "Marcador de posición" : "Placeholder"}
+                </div>
+                <div style={{ fontSize: 14, color: "var(--ink-muted)" }}>
+                  {lang === "es"
+                    ? "El contenido completo se servirá desde Sanity. Esquema y consultas GROQ ya definidos."
+                    : "Full body will be served from Sanity. Schema and GROQ queries already defined."}
+                </div>
+              </div>
+            </div>
+
+            <aside style={{ gridColumn: "10 / span 3" }} className="rd-aside">
+              <div style={{ position: "sticky", top: 120 }}>
+                {isGated ? (
+                  delivered ? (
+                    <div style={{ padding: 24, border: "1px solid var(--stone)" }}>
+                      <div className="signal-rule" style={{ marginBottom: 16 }} />
+                      <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--signal)", marginBottom: 12 }}>
+                        ✓ {lang === "es" ? "Enlace enviado" : "Link sent"}
+                      </div>
+                      <p style={{ fontSize: 14, lineHeight: 1.55, color: "var(--ink-muted)", margin: 0 }}>
+                        {lang === "es"
+                          ? `Hemos enviado el PDF a ${email}. El enlace caduca en 24 horas.`
+                          : `We've emailed the PDF to ${email}. The link expires in 24 hours.`}
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={submit} style={{ padding: 24, border: "1px solid var(--ink)" }} noValidate>
+                      <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--signal)", marginBottom: 12 }}>
+                        ↓ {lang === "es" ? "Descarga gratuita" : "Free download"}
+                      </div>
+                      <h4 className="h4" style={{ marginBottom: 8 }}>
+                        {lang === "es" ? "Solicita el PDF" : "Request the PDF"}
+                      </h4>
+                      <p style={{ fontSize: 13, color: "var(--ink-muted)", marginBottom: 24, lineHeight: 1.5 }}>
+                        {lang === "es"
+                          ? "Te enviaremos el enlace por email. Sin listas de marketing automáticas."
+                          : "We'll email you the link. No automatic marketing lists."}
+                      </p>
+
+                      <div className={"field" + (errs.email ? " err" : "")} style={{ marginBottom: 16 }}>
+                        <label htmlFor="rd-email">{lang === "es" ? "Email profesional" : "Work email"} <span className="req">*</span></label>
+                        <input id="rd-email" type="email" value={email}
+                               onChange={e => { setEmail(e.target.value); setErrs(p => ({ ...p, email: false })); }} />
+                        {errs.email && <div className="err-msg">{lang === "es" ? "Email no válido." : "Please enter a valid email."}</div>}
+                      </div>
+
+                      <label className="consent" style={{ marginBottom: 20 }}>
+                        <input type="checkbox" checked={consent}
+                               onChange={e => { setConsent(e.target.checked); setErrs(p => ({ ...p, consent: false })); }} />
+                        <span>
+                          {lang === "es"
+                            ? "Acepto recibir el PDF y comunicaciones ocasionales sobre este tema."
+                            : "I agree to receive the PDF and occasional related correspondence."}
+                        </span>
+                      </label>
+                      {errs.consent && <div className="err-msg" style={{ marginTop: -12, marginBottom: 16 }}>{lang === "es" ? "Requerido." : "Required."}</div>}
+
+                      <button type="submit" className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }}>
+                        {lang === "es" ? "Enviar enlace" : "Send link"} <span className="arr">→</span>
+                      </button>
+                    </form>
+                  )
+                ) : (
+                  <div style={{ padding: 24, border: "1px solid var(--stone)" }}>
+                    <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-muted)", marginBottom: 12 }}>
+                      {lang === "es" ? "Lectura abierta" : "Open reading"}
+                    </div>
+                    <p style={{ fontSize: 13, color: "var(--ink-muted)", margin: 0, lineHeight: 1.5 }}>
+                      {lang === "es" ? "Sin descarga. Lectura completa arriba." : "No download. Full read above."}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </aside>
+          </div>
+        </div>
+        <style>{`
+          @media (max-width: 900px) {
+            .rd-body { grid-column: 1 / -1 !important; }
+            .rd-aside { grid-column: 1 / -1 !important; }
+            .rd-aside > div { position: static !important; }
+          }
+        `}</style>
+      </section>
+
+      {related.length > 0 && (
+        <section style={{ paddingBlock: 96, borderTop: "1px solid var(--stone)" }}>
+          <div className="container">
+            <div className="eyebrow" style={{ marginBottom: 40 }}>
+              {lang === "es" ? "Lectura relacionada" : "Related reading"}
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48 }} className="rd-related">
+              {related.map((r, i) => (
+                <a key={i} onClick={(e) => { e.preventDefault(); setRoute("resource:" + slugify(r.title)); }}
+                   href="#" style={{ display: "block", paddingTop: 24, borderTop: "1px solid var(--ink)" }}>
+                  <div className="mono" style={{ fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: r.category === "Whitepaper" ? "var(--signal)" : "var(--ink-muted)", marginBottom: 12 }}>
+                    {r.category} · {r.date}
+                  </div>
+                  <h3 className="serif" style={{ fontSize: "clamp(20px, 1.8vw, 24px)", lineHeight: 1.25, letterSpacing: "-0.005em", marginBottom: 12, textWrap: "balance" }}>
+                    {r.title}
+                  </h3>
+                  <p style={{ fontSize: 14, lineHeight: 1.55, color: "var(--ink-muted)", margin: 0, maxWidth: 480 }}>{r.excerpt}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+          <style>{`@media (max-width: 760px) { .rd-related { grid-template-columns: 1fr !important; gap: 32px !important; } }`}</style>
+        </section>
+      )}
+    </>
+  );
+}
+
+Object.assign(window, { ResourceDetailPage, slugify });
+</script>
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     INLINED: app.jsx
+     ═════════════════════════════════════════════════════════════════════ -->
+<script type="text/babel" data-presets="env,react">
+const TWEAK_DEFAULTS = {
+  "serifFamily": "Source Serif 4",
+  "paperWarmth": 2,
+  "signalHue": "#0F2A5C",
+  "heroVariant": "standard"
+};
+
+const SERIF_STACKS = {
+  "Source Serif 4": `"Source Serif 4", "EB Garamond", Georgia, serif`,
+  "EB Garamond":    `"EB Garamond", Georgia, serif`,
+  "Instrument Serif": `"Instrument Serif", "EB Garamond", Georgia, serif`,
+};
+
+const PAPER_WARMTH_MAP = [
+  { paper: "#F6F4EF", pure: "#FCFBF7", stone: "#E6E2D9", soft: "#EFEBE1" },
+  { paper: "#F5F2EA", pure: "#FBF9F3", stone: "#E4DFD5", soft: "#EDE9DD" },
+  { paper: "#F3EFE6", pure: "#FBF9F3", stone: "#E2DDD1", soft: "#EDE8DC" },
+  { paper: "#F0EBDF", pure: "#F9F6EE", stone: "#DFD9CB", soft: "#EAE4D4" },
+  { paper: "#EDE7D8", pure: "#F7F3E8", stone: "#DBD4C3", soft: "#E6DECC" },
+];
+
+const SIGNAL_OPTIONS = ["#1E3A8A", "#16235C", "#0F2A5C", "#2D3F7C", "#3B1E47"];
+
+const HERO_VARIANTS = ["standard", "stacked", "indexed"];
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const [route, setRoute] = React.useState("home");
+  const [lang, setLang] = React.useState("en");
+  const [contactOpen, setContactOpen] = React.useState(false);
+
+  const copy = window.COPY[lang];
+
+  React.useEffect(() => {
+    const root = document.documentElement;
+    const serif = SERIF_STACKS[t.serifFamily] || SERIF_STACKS["Source Serif 4"];
+    root.style.setProperty("--serif", serif);
+    const warm = PAPER_WARMTH_MAP[Math.max(0, Math.min(4, t.paperWarmth))] || PAPER_WARMTH_MAP[2];
+    root.style.setProperty("--paper", warm.paper);
+    root.style.setProperty("--paper-pure", warm.pure);
+    root.style.setProperty("--stone", warm.stone);
+    root.style.setProperty("--stone-soft", warm.soft);
+    root.style.setProperty("--signal", t.signalHue);
+  }, [t]);
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [route]);
+
+  React.useEffect(() => {
+    const onHash = () => {
+      const h = window.location.hash.replace("#", "");
+      if (["home", "services", "about", "resources"].includes(h) || h.startsWith("resource:")) setRoute(h);
+    };
+    window.addEventListener("hashchange", onHash);
+    onHash();
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  React.useEffect(() => {
+    if (window.location.hash.replace("#", "") !== route) {
+      window.history.replaceState(null, "", `#${route}`);
+    }
+  }, [route]);
+
+  const onOpenContact = () => setContactOpen(true);
+
+  return (
+    <>
+      <TopNav route={route} setRoute={setRoute} lang={lang} setLang={setLang}
+              onOpenContact={onOpenContact} copy={copy} />
+      <main style={{ paddingTop: 0 }}>
+        {route === "home" && <HomePage copy={copy} onCta={onOpenContact} heroVariant={t.heroVariant} />}
+        {route === "services" && <ServicesPage copy={copy} onCta={onOpenContact} />}
+        {route === "about" && <AboutPage copy={copy} onCta={onOpenContact} />}
+        {route === "resources" && <ResourcesPage copy={copy} onCta={onOpenContact} lang={lang} setRoute={setRoute} />}
+        {route.startsWith("resource:") && <ResourceDetailPage copy={copy} lang={lang} slug={route.slice("resource:".length)} setRoute={setRoute} onCta={onOpenContact} />}
+      </main>
+      <Footer copy={copy} setRoute={setRoute} onOpenContact={onOpenContact} />
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} copy={copy} />
+
+      <TweaksPanel title="Tweaks">
+        <TweakSection label="Typography" />
+        <TweakSelect
+          label="Serif family"
+          value={t.serifFamily}
+          options={Object.keys(SERIF_STACKS)}
+          onChange={v => setTweak("serifFamily", v)}
+        />
+
+        <TweakSection label="Color" />
+        <TweakSlider
+          label="Paper warmth"
+          value={t.paperWarmth}
+          min={0} max={4} step={1}
+          onChange={v => setTweak("paperWarmth", v)}
+        />
+        <div className="twk-row">
+          <div className="twk-lbl"><span>Signal hue</span><span className="twk-val">{t.signalHue}</span></div>
+          <div style={{ display: "flex", gap: 6 }}>
+            {SIGNAL_OPTIONS.map(c => (
+              <button key={c} onClick={() => setTweak("signalHue", c)}
+                      style={{
+                        width: 26, height: 26, borderRadius: 4,
+                        background: c,
+                        border: t.signalHue === c ? "2px solid #000" : "1px solid rgba(0,0,0,0.15)",
+                        cursor: "pointer",
+                      }} />
+            ))}
+          </div>
+        </div>
+
+        <TweakSection label="Hero" />
+        <TweakRadio
+          label="Composition"
+          value={t.heroVariant}
+          options={HERO_VARIANTS}
+          onChange={v => setTweak("heroVariant", v)}
+        />
+      </TweaksPanel>
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+</script>
+</body>
+</html>

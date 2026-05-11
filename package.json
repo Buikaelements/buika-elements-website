@@ -1,0 +1,47 @@
+{
+  "name": "buika-elements-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Buika Elements — production partner in Asia for European B2B brands. Next.js 16 + Sanity. CSS via shared/ design system (no Tailwind).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "sanity:dev": "sanity dev --cwd sanity",
+    "sanity:build": "sanity build --cwd sanity",
+    "sanity:deploy": "sanity deploy --cwd sanity"
+  },
+  "dependencies": {
+    "@portabletext/react": "^6.0.3",
+    "@sanity/client": "^7.22.0",
+    "@sanity/icons": "^3.7.4",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^5.22.0",
+    "next": "^16.2.4",
+    "next-mdx-remote": "^6.0.0",
+    "next-sanity": "^12.3.0",
+    "next-sanity-image": "^6.1.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "resend": "^4.8.0",
+    "sanity": "^5.22.0",
+    "styled-components": "^6.1.13",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22.19.17",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.4",
+    "tailwindcss": "^4",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

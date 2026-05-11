@@ -1,0 +1,35 @@
+{
+  "_id": "wp-vietnam-bangladesh",
+  "slug": { "current": "vietnam-bangladesh-technical-outerwear" },
+  "title": {
+    "en": "Why Vietnam and Bangladesh are no longer interchangeable for technical outerwear",
+    "es": "Por qué Vietnam y Bangladesh ya no son intercambiables para outerwear técnico"
+  },
+  "abstract": {
+    "en": "Lead time reality, fabric availability, and the slow structural shift that European buyers are ignoring at the quoting stage.",
+    "es": "Realidad de lead times, disponibilidad de tejidos, y el cambio estructural lento que los compradores europeos están ignorando en la fase de cotización."
+  },
+  "pdf": { "en": null, "es": null },
+  "coverImage": {
+    "alt": "Technical outerwear factory floor in Vietnam",
+    "src": "/content/whitepapers/vietnam-bangladesh-technical-outerwear/cover.jpg"
+  },
+  "topic": "country-brief",
+  "tags": ["Vietnam", "Bangladesh", "outerwear", "sourcing"],
+  "regions": ["vietnam", "bangladesh"],
+  "regulations": [],
+  "readingTime": 6,
+  "author": {
+    "_id": "person-simon",
+    "name": "Simon Buika",
+    "title": "Founder"
+  },
+  "access": "open",
+  "publishedAt": "2026-01-20T09:00:00.000Z",
+  "seo": {
+    "metaTitle": { "en": "Vietnam vs Bangladesh for technical outerwear" },
+    "metaDescription": { "en": "Structural shift in sourcing, ignored at quote stage." },
+    "noIndex": false
+  },
+  "featured": false
+}

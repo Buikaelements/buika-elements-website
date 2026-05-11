@@ -1,0 +1,61 @@
+/* ————————————————————————————————————————
+   BUIKA ELEMENTS — Design tokens
+   Single source of truth, imported by both the prototype and the
+   Next.js app. Edit ONLY here.
+
+   Tokens are CSS custom properties so the runtime Tweaks panel can
+   mutate paper warmth, signal hue, and serif family without rebuilding.
+   ———————————————————————————————————————— */
+
+:root {
+  /* Ink */
+  --ink: #0A0A0B;
+  --ink-muted: #4A4A4E;
+  --ink-faint: #8A8A90;
+
+  /* Paper — warm off-white (tweakable) */
+  --paper: #F3EFE6;
+  --paper-pure: #FBF9F3;
+  --stone: #E2DDD1;
+  --stone-soft: #EDE8DC;
+
+  /* Dark ground */
+  --slate: #14161C;
+  --slate-soft: #1C1F26;
+
+  /* Signal — ink blue (tweakable) */
+  --signal: #0F2A5C;
+
+  /* Brand teal — from buikaelements.com brand identity */
+  --teal: #44BBA4;           /* hero bg, CTA fills, decorative accents        */
+  --teal-dark: #157060;      /* text on light/paper bg — passes WCAG AA 5.3:1 */
+
+  /* Type */
+  --serif: "Source Serif 4", "EB Garamond", Georgia, serif;
+  --sans: "Inter", ui-sans-serif, -apple-system, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Scale */
+  --step: 8px;
+
+  /* Rhythm */
+  --rhythm-major: 160px;
+  --rhythm-sub: 96px;
+  --rhythm-para: 28px;
+
+  /* Container — fluid width. The .container rule uses this as max-width
+     and adds clamp(24px, 4vw, 48px) of horizontal padding, so content
+     fills the viewport minus that gutter. */
+  --container: 100%;
+  --gutter: 24px;
+
+  /* Motion */
+  --ease: cubic-bezier(.2,.6,.2,1);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --rhythm-major: 96px;
+    --rhythm-sub: 64px;
+  }
+}

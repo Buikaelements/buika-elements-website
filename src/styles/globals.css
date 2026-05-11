@@ -1,0 +1,56 @@
+/* ————————————————————————————————————————
+   BUIKA ELEMENTS — Next.js global stylesheet
+   Self-contained: every CSS dependency lives under src/styles/.
+   The prototype keeps its own copy under /shared; if you change
+   tokens or section CSS in one place, mirror manually to the other.
+
+     • ./tokens.css   — design tokens (colors, type, rhythm)
+     • ./base.css     — reset, typography, buttons, forms,
+                        placeholders, reveal animation
+     • ./sections.css — nav, footer, modal, per-page section CSS
+
+   Tailwind v4 is layered on top WITHOUT preflight (our reset in
+   base.css is the single source of truth). Project tokens are
+   re-exposed as Tailwind theme keys via @theme so utilities like
+   bg-paper, text-signal, font-serif map to the same CSS vars the
+   inline styles read.
+   ———————————————————————————————————————— */
+
+@import "tailwindcss";
+
+@import "./tokens.css";
+@import "./base.css";
+@import "./sections.css";
+
+@theme {
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-paper: var(--paper);
+  --color-paper-pure: var(--paper-pure);
+  --color-stone: var(--stone);
+  --color-stone-soft: var(--stone-soft);
+  --color-slate: var(--slate);
+  --color-slate-soft: var(--slate-soft);
+  --color-signal: var(--signal);
+  --color-teal: var(--teal);
+  --color-teal-dark: var(--teal-dark);
+
+  --font-display: var(--serif);
+  --font-body: var(--sans);
+  --font-code: var(--mono);
+
+  --container-prose: 680px;
+
+  --ease-design: cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+/* next/font self-hosts the Google Fonts the prototype loads via <link>.
+   The variables come from src/app/[locale]/layout.tsx and override the
+   token defaults so var(--serif|--sans|--mono) resolve to the Next-hosted
+   font families. */
+:root {
+  --serif: var(--font-serif), "EB Garamond", Georgia, serif;
+  --sans: var(--font-sans), ui-sans-serif, -apple-system, system-ui, sans-serif;
+  --mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
+}
