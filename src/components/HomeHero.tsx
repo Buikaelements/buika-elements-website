@@ -22,7 +22,7 @@ export function HomeHero() {
       }}
     >
       {/* Text zone — pure teal, no overlap with photo */}
-      <div className="container" style={{ position: "relative", paddingTop: 96, paddingBottom: 56 }}>
+      <div className="container" style={{ position: "relative", paddingTop: 96, paddingBottom: 0 }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
           <div style={{ gridColumn: "2 / span 8" }} className="hero-inner">
             <h1
@@ -60,7 +60,7 @@ export function HomeHero() {
           </div>
         </div>
       </div>
-      {/* Photo zone — sits directly below the text, full width */}
+      {/* Photo zone — pulled up behind the text bottom */}
       <HeroImage />
       <style>{`@media (max-width: 760px) { .hero-inner { grid-column: 1 / -1 !important; } }`}</style>
     </section>
@@ -75,6 +75,7 @@ function HeroImage() {
         position: "relative",
         width: "100%",
         height: "clamp(320px, 42vw, 560px)",
+        marginTop: "-120px",
         pointerEvents: "none",
         overflow: "hidden",
       }}
@@ -83,7 +84,7 @@ function HeroImage() {
       <div style={{
         position: "absolute",
         inset: 0,
-        background: "linear-gradient(to bottom, var(--teal) 0%, transparent 12%)",
+        background: "linear-gradient(to bottom, var(--teal) 0%, transparent 28%)",
         zIndex: 1,
       }} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
