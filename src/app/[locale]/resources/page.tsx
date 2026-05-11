@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n";
 import { getCopy } from "@/lib/copy";
 import { getResourcesIndex } from "@/lib/content";
+import { ResourcesHubCard } from "@/components/ResourcesHubCard";
 import { ResourcesIndex } from "@/components/ResourcesIndex";
 
 export const dynamic = "force-static";
@@ -23,10 +24,10 @@ export default async function ResourcesPage({
 
   return (
     <>
-      {/* Knowledge Hub — first thing visible */}
-      <ResourcesIndex cards={[]} showHub={true} />
+      {/* 1. Knowledge Hub — first */}
+      <ResourcesHubCard />
 
-      {/* Hero */}
+      {/* 2. Hero — second */}
       <section style={{ paddingTop: 80, paddingBottom: 72, background: "var(--signal)", color: "var(--paper)" }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
@@ -40,8 +41,8 @@ export default async function ResourcesPage({
         <style>{`@media (max-width: 760px) { .res-hero { grid-column: 1 / -1 !important; } }`}</style>
       </section>
 
-      {/* Articles list — hub card hidden here since it's already above */}
-      <ResourcesIndex cards={cards} showHub={false} />
+      {/* 3. Filters + articles + newsletter — third */}
+      <ResourcesIndex cards={cards} />
     </>
   );
 }
