@@ -40,7 +40,7 @@ function formatLang(card: WhitepaperCard): string {
   return "EN";
 }
 
-export function ResourcesIndex({ cards }: { cards: WhitepaperCard[] }) {
+export function ResourcesIndex({ cards, showHub = true }: { cards: WhitepaperCard[]; showHub?: boolean }) {
   const { copy, locale } = useLocale();
   const r = copy.resources;
   const [filter, setFilter] = useState<string>(r.filters[0]);
@@ -81,7 +81,7 @@ export function ResourcesIndex({ cards }: { cards: WhitepaperCard[] }) {
   return (
     <>
       {/* Knowledge Hub featured card */}
-      <section style={{ paddingTop: 96, paddingBottom: 56 }}>
+      {showHub && <section style={{ paddingTop: 96, paddingBottom: 56 }}>
         <div className="container">
           <a
             href={r.hub.url}
@@ -182,7 +182,7 @@ export function ResourcesIndex({ cards }: { cards: WhitepaperCard[] }) {
         <style>{`@media (max-width: 760px) {
           .hub-card { grid-template-columns: 1fr !important; padding: 32px 28px !important; gap: 24px !important; }
         }`}</style>
-      </section>
+      </section>}
 
       {/* Filters */}
       <section
