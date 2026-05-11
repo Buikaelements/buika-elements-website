@@ -23,7 +23,7 @@ export function Wordmark({
   return (
     <span style={{
       fontFamily: "var(--serif)",
-      fontWeight: 400,
+      fontWeight: 600,
       fontSize: size,
       letterSpacing: "0.12em",
       color: onDark ? "var(--paper)" : "var(--ink)",

@@ -13,7 +13,7 @@ import { PlausibleScript } from "@/components/PlausibleScript";
 const serif = Source_Serif_4({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz"],
+  axes: ["opsz", "wght"],
   variable: "--font-serif",
   display: "swap",
 });
