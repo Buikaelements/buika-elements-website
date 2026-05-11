@@ -22,7 +22,7 @@ export function HomeHero() {
       }}
     >
       {/* Text zone — pure teal, no overlap with photo */}
-      <div className="container" style={{ position: "relative", paddingTop: 96, paddingBottom: 0 }}>
+      <div className="container" style={{ position: "relative", paddingTop: 96, paddingBottom: 0, zIndex: 2 }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
           <div style={{ gridColumn: "2 / span 8" }} className="hero-inner">
             <h1
