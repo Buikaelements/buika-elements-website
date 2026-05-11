@@ -396,7 +396,7 @@ export const COPY: Record<Locale, Copy> = {
         head: "EU Workwear Regulations — Knowledge Hub",
         body: "A live reference covering PPE categories, EN ISO standards, CSRD, CSDDD, and REACH — with factory-side action points for every regulation. Built for the factories in our network. Available to any European brand that needs to understand what the regulations actually require.",
         cta: "Open the hub",
-        url: "https://hoabui4396.github.io/EU-Workwear-Regulation-Hub-EN-ES-_Rev4/",
+        url: "https://hoabui4396.github.io/EU-Workwear-Regulation-Hub-EN-ES-_Rev5/",
         meta: "Daily digest · EU-27 + UK + Norway · Free",
       },
       articles: [
@@ -729,7 +729,7 @@ export const COPY: Record<Locale, Copy> = {
         head: "Normativa UE para workwear — Knowledge Hub",
         body: "Referencia en vivo con categorías PPE, normas EN ISO, CSRD, CSDDD y REACH — con puntos de acción desde el lado de la fábrica para cada regulación. Construida para las fábricas de nuestra red. Disponible para cualquier marca europea que necesite entender qué requieren realmente las regulaciones.",
         cta: "Abrir el hub",
-        url: "https://hoabui4396.github.io/EU-Workwear-Regulation-Hub-EN-ES-_Rev4/",
+        url: "https://hoabui4396.github.io/EU-Workwear-Regulation-Hub-EN-ES-_Rev5/",
         meta: "Digest diario · EU-27 + UK + Noruega · Gratuito",
       },
       articles: [
