@@ -1,0 +1,32 @@
+{
+  "_id": "bp-neck-label-quality",
+  "slug": { "current": "neck-label-application-quality" },
+  "title": {
+    "en": "Neck label application in workwear: the technical detail that defines perceived quality",
+    "es": "Aplicación de etiquetas de cuello en workwear: el detalle técnico que define la calidad percibida"
+  },
+  "abstract": {
+    "en": "The first thing a person does when they open a new workwear garment is bring it to their neck. What they feel defines their first impression. Here is what controls that — and what to ask the factory.",
+    "es": "Lo primero que hace una persona al abrir una prenda de trabajo nueva es llevársela al cuello. Lo que siente define su primera impresión. Qué lo controla — y qué pedirle a la fábrica."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "quality",
+  "tags": ["neck label", "quality", "workwear", "heat transfer", "production"],
+  "regions": ["Bangladesh", "Myanmar"],
+  "readingTime": 5,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-04-04T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "Neck label application: what separates a serious factory from one that is not",
+      "es": "Aplicación de etiquetas de cuello: lo que diferencia una fábrica seria"
+    },
+    "metaDescription": {
+      "en": "Sewn vs transfer neck labels, application parameters, and why this small detail generates more quality complaints than most brands expect.",
+      "es": "Etiquetas cosidas vs transfer, parámetros de aplicación, y por qué este pequeño detalle genera más reclamaciones de las que la mayoría espera."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

@@ -1,0 +1,32 @@
+{
+  "_id": "bp-backup-production-capacity",
+  "slug": { "current": "backup-production-capacity-asia" },
+  "title": {
+    "en": "Secondary capacity: what it is, when you need it, and how to develop it in Asia",
+    "es": "Capacidad secundaria: qué es, cuándo la necesitas y cómo encontrarla en Asia"
+  },
+  "abstract": {
+    "en": "Your main factory is at full capacity. You have an urgent order and no alternative. Finding production in Asia under time pressure and without an established relationship is one of the hardest — and most expensive — exercises in the sector.",
+    "es": "Tu fábrica principal está a plena capacidad. Tienes una orden urgente y no tienes alternativa. Encontrar producción en Asia bajo presión de tiempo y sin una relación previa es uno de los ejercicios más difíciles — y más caros — del sector."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "sourcing",
+  "tags": ["backup capacity", "production", "Bangladesh", "Myanmar", "risk management"],
+  "regions": ["Bangladesh", "Myanmar"],
+  "readingTime": 5,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-04-25T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "Secondary production capacity in Asia: develop it before you need it",
+      "es": "Capacidad de producción secundaria en Asia: desarróllala antes de necesitarla"
+    },
+    "metaDescription": {
+      "en": "What backup capacity actually means in practice, which brand profiles need it most, and how to build a real working relationship with a second factory in Asia.",
+      "es": "Qué significa la capacidad de respaldo en la práctica, qué perfiles de marca más la necesitan, y cómo construir una relación real con una segunda fábrica en Asia."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

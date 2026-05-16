@@ -1,0 +1,32 @@
+{
+  "_id": "bp-order-approval-chain",
+  "slug": { "current": "order-approval-chain-europe-asia" },
+  "title": {
+    "en": "How the order approval chain between Europe and Asia actually works",
+    "es": "Cómo funciona realmente la cadena de aprobación de una orden entre Europa y Asia"
+  },
+  "abstract": {
+    "en": "The brand says the order is confirmed. The factory hasn't started cutting yet. Between commercial confirmation and production start, there are 8 to 12 people involved — and each has their own process.",
+    "es": "La marca dice que la orden está confirmada. La fábrica todavía no ha empezado a cortar. Entre la confirmación comercial y el inicio de producción hay 8 a 12 personas — y cada una tiene su propio proceso."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "sourcing",
+  "tags": ["order management", "approval chain", "production", "Asia", "planning"],
+  "regions": ["Bangladesh", "Myanmar", "China"],
+  "readingTime": 5,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-04-18T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "The order approval chain between Europe and Asia",
+      "es": "La cadena de aprobación de órdenes entre Europa y Asia"
+    },
+    "metaDescription": {
+      "en": "Why 'confirmed' does not mean production has started — and who the real actors are in an international garment order.",
+      "es": "Por qué 'confirmada' no significa que la producción haya comenzado — y quiénes son los actores reales en una orden internacional."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

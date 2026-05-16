@@ -1,0 +1,32 @@
+{
+  "_id": "bp-eastern-europe-workwear",
+  "slug": { "current": "eastern-europe-workwear-market" },
+  "title": {
+    "en": "Eastern Europe as an emerging workwear market: what eastern buyers want and how they differ from western buyers",
+    "es": "Europa del Este como mercado workwear emergente: lo que las marcas del este buscan y cómo difieren del buyer occidental"
+  },
+  "abstract": {
+    "en": "Poland rarely appears in conversations about workwear growth. It should. The Polish workwear market is one of the fastest-growing in the EU — and the buyer profile is fundamentally different from Spain or France.",
+    "es": "Polonia rara vez aparece en las conversaciones sobre crecimiento en workwear. Debería. El mercado workwear polaco es uno de los de mayor crecimiento en la UE — y el perfil del comprador es fundamentalmente diferente al de España o Francia."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "country-brief",
+  "tags": ["Eastern Europe", "Poland", "workwear", "market", "sourcing"],
+  "regions": ["Poland", "Eastern Europe"],
+  "readingTime": 5,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-05-16T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "Eastern Europe workwear market: Poland and what buyers want",
+      "es": "Mercado workwear de Europa del Este: Polonia y lo que buscan los compradores"
+    },
+    "metaDescription": {
+      "en": "The Eastern European workwear buyer negotiates harder, buys more volume per reference, and demands technical documentation upfront. What to adapt before entering these markets.",
+      "es": "El comprador de workwear de Europa del Este negocia más duro, compra más volumen por referencia y exige documentación técnica desde el principio. Qué adaptar antes de entrar en estos mercados."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

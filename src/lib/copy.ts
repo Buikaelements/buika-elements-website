@@ -385,7 +385,7 @@ export const COPY: Record<Locale, Copy> = {
       eyebrow: "Resources",
       head: "Essays and whitepapers on producing in Asia for European brands.",
       sub: "Field notes from Da Nang. Written by Simon, not a content team.",
-      filters: ["All", "Essays", "Whitepapers", "Field notes"],
+      filters: ["All", "Blogposts", "Whitepapers", "Field notes"],
       newsletter: {
         head: "Occasional field notes on producing in Asia. No spam.",
         placeholder: "your@email.com",
@@ -718,7 +718,7 @@ export const COPY: Record<Locale, Copy> = {
       eyebrow: "Recursos",
       head: "Ensayos y whitepapers sobre producir en Asia para marcas europeas.",
       sub: "Notas de campo desde Da Nang. Escrito por Simon, no por un equipo de contenidos.",
-      filters: ["Todo", "Ensayos", "Whitepapers", "Notas de campo"],
+      filters: ["Todo", "Blogposts", "Whitepapers", "Notas de campo"],
       newsletter: {
         head: "Notas ocasionales sobre producir en Asia. Sin spam.",
         placeholder: "tu@email.com",

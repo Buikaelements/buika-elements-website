@@ -1,0 +1,32 @@
+{
+  "_id": "bp-china-fabric-closures",
+  "slug": { "current": "china-fabric-market-closures" },
+  "title": {
+    "en": "The Chinese fabric market: what happens when the factory shuts and how it reaches your collection",
+    "es": "El mercado de tejidos en China: qué pasa cuando la fábrica cierra y cómo te afecta a ti como marca EU"
+  },
+  "abstract": {
+    "en": "China stops several times a year — and most European brands find out weeks later, when their fabric hasn't arrived at the Bangladesh or Myanmar factory. How the cascade works and how to anticipate it.",
+    "es": "China para varias veces al año — y la mayoría de marcas europeas lo descubren semanas después, cuando su tejido no ha llegado a la fábrica en Bangladesh o Myanmar. Cómo funciona la cascada y cómo anticiparse."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "sourcing",
+  "tags": ["China", "fabric", "supply chain", "Chinese New Year", "planning"],
+  "regions": ["China", "Bangladesh", "Myanmar"],
+  "readingTime": 5,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-04-11T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "China fabric market closures: how they affect your European workwear brand",
+      "es": "Cierres del mercado de tejidos en China: cómo afectan a tu marca europea"
+    },
+    "metaDescription": {
+      "en": "The Chinese calendar shuts down fabric mills multiple times a year. Planning your collection around it — not against it — is the difference between a smooth season and a late shipment.",
+      "es": "El calendario chino paraliza las fábricas de tejido varias veces al año. Planificar sobre él — no contra él — es la diferencia entre una temporada tranquila y un envío con retraso."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

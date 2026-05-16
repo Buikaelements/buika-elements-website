@@ -1,0 +1,32 @@
+{
+  "_id": "bp-cvc-fabrics-hv-polo",
+  "slug": { "current": "cvc-fabrics-hv-polo-workwear" },
+  "title": {
+    "en": "Why CVC fabrics are the smart bet for HV polo shirts in workwear",
+    "es": "Por qué los tejidos CVC son la apuesta inteligente para polos HV en workwear"
+  },
+  "abstract": {
+    "en": "100% polyester dominates HV workwear — but there are three situations where CVC wins. Understanding the grammage, construction and dyeing parameters that actually determine the result.",
+    "es": "El poliéster 100% domina el workwear HV — pero hay tres situaciones donde el CVC gana. Los parámetros de gramaje, construcción y tintado que determinan el resultado real."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "workwear",
+  "tags": ["CVC", "fabric", "HV", "high visibility", "polo", "workwear"],
+  "regions": ["Bangladesh", "Myanmar"],
+  "readingTime": 5,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-03-21T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "CVC fabrics for HV polo shirts: when and why",
+      "es": "Tejidos CVC para polos HV: cuándo y por qué"
+    },
+    "metaDescription": {
+      "en": "CVC (Chief Value Cotton) blends offer comfort and durability for HV workwear — if specified correctly. Here is what to control before confirming production.",
+      "es": "Las mezclas CVC ofrecen confort y durabilidad para workwear HV — si se especifican correctamente. Lo que hay que controlar antes de confirmar producción."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

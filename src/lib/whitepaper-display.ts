@@ -18,8 +18,6 @@ export function deriveCategory(
       : "Field note"
     : isWhitepaper
       ? "Whitepaper"
-      : locale === "es"
-        ? "Ensayo"
-        : "Essay";
+      : "Blogpost";
   return { label, isWhitepaper, isFieldNote };
 }

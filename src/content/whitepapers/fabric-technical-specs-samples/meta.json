@@ -1,0 +1,32 @@
+{
+  "_id": "bp-fabric-tech-specs-samples",
+  "slug": { "current": "fabric-technical-specs-samples" },
+  "title": {
+    "en": "Fabric tech sheets and samples: the step most European brands skip — and pay for",
+    "es": "Fichas técnicas y muestras de tejido: el paso que la mayoría de marcas europeas saltea — y caro que les sale"
+  },
+  "abstract": {
+    "en": "What a fabric tech sheet must include, why grammage is not just a cost variable, and the four-stage sample process that eliminates production surprises.",
+    "es": "Qué debe incluir una ficha técnica de tejido, por qué el gramaje no es solo una variable de coste, y el proceso de cuatro etapas que elimina las sorpresas de producción."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "quality",
+  "tags": ["technical sheet", "fabric", "samples", "production", "spec"],
+  "regions": [],
+  "readingTime": 5,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-03-28T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "Fabric tech sheets and samples: why skipping them is costly",
+      "es": "Fichas técnicas y muestras de tejido: por qué saltárselas sale caro"
+    },
+    "metaDescription": {
+      "en": "A fabric spec is the real contract between what you imagine and what you receive. Here is what it must contain — and what happens when it does not exist.",
+      "es": "Una ficha técnica es el contrato real entre lo que imaginas y lo que recibes. Qué debe contener — y qué pasa cuando no existe."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

@@ -1,0 +1,32 @@
+{
+  "_id": "bp-price-negotiation-asia",
+  "slug": { "current": "price-negotiation-asia" },
+  "title": {
+    "en": "Price negotiation with Asia: why the price agreed in January doesn't always survive until May",
+    "es": "Negociación de precios con Asia: por qué los precios acordados en enero no siempre llegan a mayo"
+  },
+  "abstract": {
+    "en": "You negotiate a price in January. You confirm it by email. You build your margin model. In May, the prices have moved. It is not always bad faith — here is what is actually happening, and how to protect yourself without breaking the commercial relationship.",
+    "es": "Negocias un precio en enero. Lo confirmas por email. Calculas tu margen. En mayo, los precios han cambiado. No siempre es mala fe — lo que está pasando realmente, y cómo protegerte sin romper la relación."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "costing",
+  "tags": ["pricing", "negotiation", "Asia", "FOB", "costing", "fabric cost"],
+  "regions": ["Bangladesh", "Myanmar"],
+  "readingTime": 5,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-05-02T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "Why Asian factory prices move between quote and confirmation",
+      "es": "Por qué los precios de fábrica en Asia cambian entre oferta y confirmación"
+    },
+    "metaDescription": {
+      "en": "Fabric, labour, exchange rates — four components that move independently. How to negotiate price stability without damaging the long-term relationship.",
+      "es": "Tejido, mano de obra, tipo de cambio — cuatro componentes que se mueven de forma independiente. Cómo negociar estabilidad de precio sin dañar la relación a largo plazo."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

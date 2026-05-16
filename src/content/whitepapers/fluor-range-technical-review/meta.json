@@ -1,0 +1,32 @@
+{
+  "_id": "bp-fluor-technical-review",
+  "slug": { "current": "fluor-range-technical-review" },
+  "title": {
+    "en": "Launching a FLUOR range: what your brand needs to know before confirming production",
+    "es": "Gama FLUOR: revisión técnica de lo que una marca necesita saber antes de lanzarla"
+  },
+  "abstract": {
+    "en": "ISO 20471 requirements, colour durability after industrial washing, retroreflective component quality, and personalisation compatibility. The checklist before you confirm a high-visibility range.",
+    "es": "Requisitos ISO 20471, durabilidad del color tras lavado industrial, calidad del componente retroreflectante y compatibilidad con personalización. La lista antes de confirmar una gama HV."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "workwear",
+  "tags": ["FLUOR", "HV", "ISO 20471", "high visibility", "retroreflective", "workwear"],
+  "regions": ["Bangladesh", "Myanmar"],
+  "readingTime": 7,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-05-09T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "Launching a FLUOR range: technical review before production",
+      "es": "Lanzar una gama FLUOR: revisión técnica antes de producir"
+    },
+    "metaDescription": {
+      "en": "High-visibility workwear is not just a colour and a stripe. ISO 20471 colour coordinates, industrial wash durability and retroreflective performance — what to control before confirming.",
+      "es": "El workwear de alta visibilidad no es solo un color y una banda. Coordenadas de color ISO 20471, durabilidad al lavado industrial y rendimiento retroreflectante — qué controlar antes de confirmar."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

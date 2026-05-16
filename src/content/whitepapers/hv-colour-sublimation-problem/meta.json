@@ -1,0 +1,32 @@
+{
+  "_id": "bp-hv-colour-sublimation",
+  "slug": { "current": "hv-colour-sublimation-problem" },
+  "title": {
+    "en": "HV fabric colour and heat transfer: why sublimation destroys fluorescent dyes",
+    "es": "El problema del color en tejidos HV: por qué la sublimación destruye el fluorescente"
+  },
+  "abstract": {
+    "en": "Why your HV garment is staining your customer's heat press — and what to specify in the tech pack to prevent it.",
+    "es": "Por qué tu prenda HV está manchando la prensa de transfer de tu cliente — y qué especificar en la ficha técnica para evitarlo."
+  },
+  "pdf": { "en": null, "es": null },
+  "topic": "workwear",
+  "tags": ["HV", "high visibility", "heat transfer", "fluorescent", "ISO 20471"],
+  "regions": ["Bangladesh", "Myanmar"],
+  "readingTime": 5,
+  "author": { "_id": "person-simon", "name": "Simon Buika", "title": "Founder" },
+  "access": "open",
+  "publishedAt": "2026-03-14T09:00:00.000Z",
+  "seo": {
+    "metaTitle": {
+      "en": "HV fabrics and heat transfer: the sublimation problem",
+      "es": "Tejidos HV y transfer térmico: el problema de la sublimación"
+    },
+    "metaDescription": {
+      "en": "Fluorescent dyes react differently to heat. Here is what happens, why it matters, and what to put in your tech pack.",
+      "es": "Los colorantes fluorescentes reaccionan diferente al calor. Qué pasa, por qué importa, y qué poner en tu ficha técnica."
+    },
+    "noIndex": false
+  },
+  "featured": false
+}

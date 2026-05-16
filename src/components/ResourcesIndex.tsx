@@ -59,7 +59,7 @@ export function ResourcesIndex({ cards }: { cards: WhitepaperCard[] }) {
     if (f === all) return cards;
     return cards.filter((c) => {
       const cat = deriveCategory(c.topic, c.access, locale);
-      if (f === "Essays" || f === "Ensayos") return !cat.isWhitepaper && !cat.isFieldNote;
+      if (f === "Essays" || f === "Ensayos" || f === "Blogposts") return !cat.isWhitepaper && !cat.isFieldNote;
       if (f === "Whitepapers") return cat.isWhitepaper;
       if (f === "Field notes" || f === "Notas de campo") return cat.isFieldNote;
       return true;
