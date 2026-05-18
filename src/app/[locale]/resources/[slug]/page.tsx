@@ -194,7 +194,7 @@ export default async function ResourceDetailPage({
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
             {/* Left: body */}
-            <div style={{ gridColumn: "2 / span 7" }} className="rd-body">
+            <div style={{ gridColumn: isWp ? "2 / span 7" : "1 / span 9" }} className="rd-body">
               {wp.body ? (
                 wp.body.kind === "mdx" ? (
                   <ContentBodyMdx source={pickLocale(lang, wp.body.en, wp.body.es)} />
@@ -239,7 +239,7 @@ export default async function ResourceDetailPage({
             </div>
 
             {/* Right: gate / download */}
-            <aside style={{ gridColumn: "10 / span 3" }} className="rd-aside">
+            <aside style={{ gridColumn: isWp ? "10 / span 3" : "11 / span 2" }} className="rd-aside">
               <div style={{ position: "sticky", top: 96 }}>
                 <ResourceDetailGate locale={lang} isGated={isGated} />
               </div>
