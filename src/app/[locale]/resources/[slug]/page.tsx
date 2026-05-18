@@ -93,15 +93,21 @@ export default async function ResourceDetailPage({
             ← {lang === "es" ? "Recursos" : "Resources"}
           </Link>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
-            <div style={{ gridColumn: "2 / span 10" }} className="rd-head">
+          <div
+            className="rd-head"
+            style={isWp
+              ? { display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }
+              : { maxWidth: 760, margin: "0 auto" }
+            }
+          >
+            <div style={isWp ? { gridColumn: "2 / span 10" } : undefined}>
               <div className="eyebrow" style={{ marginBottom: 20, color: isWp ? "var(--signal)" : undefined }}>
                 <span>{category}</span>
                 <span style={{ margin: "0 12px", color: "var(--ink-faint)" }}>·</span>
                 <span style={{ color: "var(--ink-muted)" }}>{dateStr}</span>
               </div>
 
-              <h1 className="h1" style={{ marginBottom: 24, maxWidth: 1100 }}>{title}</h1>
+              <h1 className="h1" style={{ marginBottom: 24, maxWidth: isWp ? 1100 : 760 }}>{title}</h1>
 
               <p className="lede" style={{ maxWidth: 720, color: "var(--ink-muted)" }}>{abstract}</p>
 
@@ -192,59 +198,34 @@ export default async function ResourceDetailPage({
       {/* ─── Body / gate ─── */}
       <section style={{ paddingBottom: 72 }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
-            {/* Left: body */}
-            <div style={{ gridColumn: isWp ? "2 / span 7" : "1 / span 9" }} className="rd-body">
+          {isWp ? (
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
+              <div style={{ gridColumn: "2 / span 7" }} className="rd-body">
+                {wp.body ? (
+                  wp.body.kind === "mdx" ? (
+                    <ContentBodyMdx source={pickLocale(lang, wp.body.en, wp.body.es)} />
+                  ) : (
+                    <ContentBody body={wp.body} locale={lang} />
+                  )
+                ) : null}
+              </div>
+              <aside style={{ gridColumn: "10 / span 3" }} className="rd-aside">
+                <div style={{ position: "sticky", top: 96 }}>
+                  <ResourceDetailGate locale={lang} isGated={isGated} />
+                </div>
+              </aside>
+            </div>
+          ) : (
+            <div style={{ maxWidth: 720, margin: "0 auto" }} className="rd-body">
               {wp.body ? (
                 wp.body.kind === "mdx" ? (
                   <ContentBodyMdx source={pickLocale(lang, wp.body.en, wp.body.es)} />
                 ) : (
                   <ContentBody body={wp.body} locale={lang} />
                 )
-              ) : (
-                <>
-                  <p className="body" style={{ marginBottom: 24, color: "var(--ink-muted)", maxWidth: 680 }}>
-                    {lang === "es"
-                      ? "Esta pagina es una vista previa. El cuerpo del documento se gestionara desde el sistema de contenido."
-                      : "This page is a preview. The document body will be managed by the content system."}
-                  </p>
-                  <div
-                    style={{
-                      marginTop: 48,
-                      padding: "20px 24px",
-                      borderLeft: "2px solid var(--signal)",
-                      background: "var(--stone-soft)",
-                    }}
-                  >
-                    <div
-                      className="mono"
-                      style={{
-                        fontSize: 10,
-                        letterSpacing: "0.14em",
-                        textTransform: "uppercase",
-                        color: "var(--signal)",
-                        marginBottom: 6,
-                      }}
-                    >
-                      {lang === "es" ? "Marcador de posicion" : "Placeholder"}
-                    </div>
-                    <div style={{ fontSize: 14, color: "var(--ink-muted)" }}>
-                      {lang === "es"
-                        ? "El contenido completo se servira desde la fuente activa."
-                        : "Full body will be served from the active content source."}
-                    </div>
-                  </div>
-                </>
-              )}
+              ) : null}
             </div>
-
-            {/* Right: gate / download */}
-            <aside style={{ gridColumn: isWp ? "10 / span 3" : "11 / span 2" }} className="rd-aside">
-              <div style={{ position: "sticky", top: 96 }}>
-                <ResourceDetailGate locale={lang} isGated={isGated} />
-              </div>
-            </aside>
-          </div>
+          )}
         </div>
         <style>{`
           @media (max-width: 900px) {
