@@ -72,7 +72,7 @@ export default async function ResourceDetailPage({
   return (
     <>
       {/* ─── Header ─── */}
-      <section style={{ paddingTop: 180, paddingBottom: 64 }}>
+      <section style={{ paddingTop: 120, paddingBottom: 48 }}>
         <div className="container">
           <Link
             href={`/${locale}/resources` as Route}
@@ -82,7 +82,7 @@ export default async function ResourceDetailPage({
               letterSpacing: "0.14em",
               textTransform: "uppercase",
               color: "var(--ink-muted)",
-              marginBottom: 48,
+              marginBottom: 32,
               cursor: "pointer",
               display: "inline-flex",
               alignItems: "center",
@@ -95,13 +95,13 @@ export default async function ResourceDetailPage({
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
             <div style={{ gridColumn: "2 / span 10" }} className="rd-head">
-              <div className="eyebrow" style={{ marginBottom: 32, color: isWp ? "var(--signal)" : undefined }}>
+              <div className="eyebrow" style={{ marginBottom: 20, color: isWp ? "var(--signal)" : undefined }}>
                 <span>{category}</span>
                 <span style={{ margin: "0 12px", color: "var(--ink-faint)" }}>·</span>
                 <span style={{ color: "var(--ink-muted)" }}>{dateStr}</span>
               </div>
 
-              <h1 className="h1" style={{ marginBottom: 40, maxWidth: 1100 }}>{title}</h1>
+              <h1 className="h1" style={{ marginBottom: 24, maxWidth: 1100 }}>{title}</h1>
 
               <p className="lede" style={{ maxWidth: 720, color: "var(--ink-muted)" }}>{abstract}</p>
 
@@ -111,7 +111,7 @@ export default async function ResourceDetailPage({
                   display: "grid",
                   gridTemplateColumns: "repeat(4, auto)",
                   gap: "12px 48px",
-                  margin: "56px 0 0",
+                  margin: "36px 0 0",
                   padding: 0,
                   borderTop: "1px solid var(--stone)",
                   paddingTop: 24,
@@ -190,7 +190,7 @@ export default async function ResourceDetailPage({
       </section>
 
       {/* ─── Body / gate ─── */}
-      <section style={{ paddingBottom: 96 }}>
+      <section style={{ paddingBottom: 72 }}>
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 24 }}>
             {/* Left: body */}
@@ -257,7 +257,7 @@ export default async function ResourceDetailPage({
 
       {/* ─── Related ─── */}
       {related.length > 0 && (
-        <section style={{ paddingBlock: 96, borderTop: "1px solid var(--stone)" }}>
+        <section style={{ paddingBlock: 72, borderTop: "1px solid var(--stone)" }}>
           <div className="container">
             <div className="eyebrow" style={{ marginBottom: 40 }}>
               {lang === "es" ? "Lectura relacionada" : "Related reading"}
