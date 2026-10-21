@@ -24,13 +24,13 @@ export function AboutBio() {
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/simon-portrait.png"
+              src="/images/simon-portrait.webp"
               alt="Simon Caballero — Founder, Buika Elements"
               style={{
                 width: "100%",
                 aspectRatio: "4 / 5",
                 objectFit: "cover",
-                objectPosition: "center 55%",
+                objectPosition: "center 30%",
                 display: "block",
               }}
             />

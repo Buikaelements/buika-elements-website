@@ -155,7 +155,7 @@ All source images are in `public/images/`. Use these as references for any commi
 |---|---|---|
 | `hero-city-sunset.jpeg` | Shanghai at golden hour — aerial sweep of the Huangpu River | Hero sections, email headers, deck covers |
 | `hero-shanghai-night.jpg` | The Bund at night — city lights on the river | Dark panel backgrounds, contrast sections |
-| `simon-portrait.png` | Simon Caballero, founder | About page, proposals, author bylines |
+| `simon-portrait.webp` | Simon Caballero, founder | About page, proposals, author bylines |
 | `outdoor-wear-collage.avif` | Outdoor technical garment collection | Services page, product context |
 | `work-wear-collage.avif` | Workwear product grid | Services page, category references |
 | `safety-shoes-collage.avif` | Safety footwear collection | Services page |
@@ -383,7 +383,7 @@ Available for a 30-minute call this week or next?
 logo.png                      Full horizontal wordmark lockup (1402×225px)
 hero-city-sunset.jpeg         Shanghai aerial at golden hour — hero use
 hero-shanghai-night.jpg       The Bund at night — dark panel use
-simon-portrait.png            Founder portrait
+simon-portrait.webp           Founder portrait
 outdoor-wear-collage.avif     Outdoor technical garments
 work-wear-collage.avif        Workwear product grid
 safety-shoes-collage.avif     Safety footwear
