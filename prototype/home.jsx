@@ -23,7 +23,7 @@ function HeroTypographic({ copy, onCta, variant = "standard" }) {
               </div>
               <h1 className="serif" style={{
                 fontSize: "clamp(56px, 9vw, 116px)", lineHeight: 0.98, letterSpacing: "-0.035em",
-                fontWeight: 400, margin: 0, color: "var(--paper)", textWrap: "balance",
+                fontWeight: 300, margin: 0, color: "var(--paper)", textWrap: "balance",
               }}>
                 {copy.home.heroHeadline[0]}<br/>
                 <span style={{ color: "rgba(243,239,230,0.55)" }}>{copy.home.heroHeadline[1]}</span>
@@ -73,7 +73,7 @@ function HeroTypographic({ copy, onCta, variant = "standard" }) {
               </div>
               <h1 className="serif" style={{
                 fontSize: "clamp(44px, 6.2vw, 78px)", lineHeight: 1.05, letterSpacing: "-0.022em",
-                fontWeight: 400, margin: 0, color: "var(--paper)", textWrap: "balance",
+                fontWeight: 300, margin: 0, color: "var(--paper)", textWrap: "balance",
               }}>
                 {copy.home.heroHeadline[0]} {copy.home.heroHeadline[1]}
               </h1>
@@ -114,7 +114,7 @@ function HeroTypographic({ copy, onCta, variant = "standard" }) {
             </div>
             <h1 className="serif" style={{
               fontSize: "clamp(48px, 7.4vw, 92px)", lineHeight: 1.03, letterSpacing: "-0.028em",
-              fontWeight: 400, margin: 0, color: "var(--paper)", textWrap: "balance",
+              fontWeight: 300, margin: 0, color: "var(--paper)", textWrap: "balance",
             }}>
               {copy.home.heroHeadline[0]}<br/>{copy.home.heroHeadline[1]}
             </h1>

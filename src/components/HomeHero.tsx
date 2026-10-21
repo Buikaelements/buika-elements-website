@@ -31,7 +31,7 @@ export function HomeHero() {
                 fontSize: "clamp(48px, 7.4vw, 92px)",
                 lineHeight: 1.03,
                 letterSpacing: "-0.028em",
-                fontWeight: 400,
+                fontWeight: 300,
                 margin: 0,
                 color: "var(--ink)",
                 textWrap: "balance",

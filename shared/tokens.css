@@ -33,7 +33,9 @@
   /* Type */
   --serif: "Source Serif 4", "EB Garamond", Georgia, serif;
   --sans: "Inter", ui-sans-serif, -apple-system, system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* Labels (dates, captions, figure numbers). Was JetBrains Mono — now set in
+     Inter so the site runs on two families, like McKinsey / BCG. */
+  --mono: "Inter", ui-sans-serif, -apple-system, system-ui, sans-serif;
 
   /* Scale */
   --step: 8px;

@@ -4,7 +4,7 @@
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Source_Serif_4, Inter, JetBrains_Mono } from "next/font/google";
+import { Source_Serif_4, Inter } from "next/font/google";
 import { LOCALES, isLocale, type Locale } from "@/lib/i18n";
 import { getCopy } from "@/lib/copy";
 import { SiteChrome } from "@/components/SiteChrome";
@@ -22,13 +22,6 @@ const sans = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
   display: "swap",
 });
 
@@ -58,7 +51,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   const copy = getCopy(typedLocale);
 
   return (
-    <html lang={typedLocale} className={`${serif.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang={typedLocale} className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
       <body>
         {/* JIT seed: forces Tailwind v4 to emit our token utilities + CSS vars
             even when no real component currently uses them. Safe to delete

@@ -61,15 +61,14 @@ All values are CSS custom properties defined in `src/styles/tokens.css` and `sha
 
 | Token | Font | Weights | Role |
 |---|---|---|---|
-| `--serif` | **Source Serif 4** (optical-size variable) | 400 (regular), 400 italic | Display headlines, pull quotes, document titles |
+| `--serif` | **Source Serif 4** (optical-size variable) | 300 (light), 300 italic | Display headlines, pull quotes, document titles |
 | `--sans` | **Inter** | 400, 500, 600 | Body text, UI labels, eyebrows, buttons |
-| `--mono` | **JetBrains Mono** | 400, 500 | Data, stats, metadata labels, timestamps |
+| `--mono` | **Inter** (was JetBrains Mono) | 400, 500 | Metadata labels, timestamps, captions — small, uppercase, tracked |
 
 Google Fonts CDN URLs for email/deck use:
 ```
 Source Serif 4: https://fonts.google.com/specimen/Source+Serif+4
 Inter:          https://fonts.google.com/specimen/Inter
-JetBrains Mono: https://fonts.google.com/specimen/JetBrains+Mono
 ```
 
 **Email fallback stack:**
@@ -92,7 +91,7 @@ JetBrains Mono: https://fonts.google.com/specimen/JetBrains+Mono
 
 ### Typography rules
 
-- **Headlines** always use Source Serif 4, weight 400. Never bold.
+- **Headlines** always use Source Serif 4, weight 300 (light). Never bold.
 - **Eyebrows** always Inter, 12px, 500 weight, ALL CAPS, 0.14em letter-spacing.
 - **Stats/numbers** use `.num-serif` class (Source Serif 4 with lnum + tnum features).
 - **Do not justify** body text. Left-align on LTR.
