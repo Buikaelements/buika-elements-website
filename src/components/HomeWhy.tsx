@@ -26,18 +26,18 @@ export function HomeWhy() {
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0,
           borderTop: "1px solid rgba(243,239,230,0.15)",
         }} className="why-grid">
-          {copy.home.why.map((w: { label: string; body: string }, i: number) => (
+          {copy.home.why.map((w: { label: string; body: string; tag?: string }, i: number, all: unknown[]) => (
             <Reveal key={i} delay={i * 60}>
               <div style={{
                 padding: "40px 48px 40px 0",
                 borderRight: i % 2 === 0 ? "1px solid rgba(243,239,230,0.12)" : "none",
-                borderBottom: i < 2 ? "1px solid rgba(243,239,230,0.12)" : "none",
+                borderBottom: i < all.length - 2 ? "1px solid rgba(243,239,230,0.12)" : "none",
                 paddingLeft: i % 2 === 1 ? 48 : 0,
               }} className="why-cell">
                 <div style={{
                   fontFamily: "var(--mono)", fontSize: 12, letterSpacing: "0.14em",
                   textTransform: "uppercase", color: "var(--teal)", marginBottom: 16,
-                }}>0{i+1}</div>
+                }}>{w.tag ?? `0${i+1}`}</div>
                 <h3 className="serif" style={{ fontSize: 26, lineHeight: 1.22, letterSpacing: "-0.005em", marginBottom: 16, color: "var(--paper)" }}>
                   {w.label}
                 </h3>

@@ -9,9 +9,7 @@ import { HomeHero } from "@/components/HomeHero";
 import { CredibilityBar } from "@/components/CredibilityBar";
 import { HomePositioning } from "@/components/HomePositioning";
 import { HomeContrast } from "@/components/HomeContrast";
-import { HomeSteps } from "@/components/HomeSteps";
 import { HomeWhy } from "@/components/HomeWhy";
-import { HomeValueProp } from "@/components/HomeValueProp";
 import { CtaBand } from "@/components/CtaBand";
 
 /**
@@ -34,9 +32,7 @@ export default async function HomePage({
       <CredibilityBar items={copy.home.credibility} />
       <HomePositioning />
       <HomeContrast />
-      <HomeSteps />
       <HomeWhy />
-      <HomeValueProp />
       <CtaBand
         head={copy.home.bottomCta.head}
         body={copy.home.bottomCta.body}

@@ -64,7 +64,7 @@ export type HomeCopy = {
   steps: Array<{ n: string; title: string; body: string }>;
   whyEyebrow: string;
   whyHead: string;
-  why: Array<{ label: string; body: string }>;
+  why: Array<{ label: string; body: string; tag?: string }>;
   statement: string;
   bottomCta: { head: string; body: string; cta: string };
 };
@@ -164,42 +164,34 @@ export type ContactModalCopy = {
 
 export const COPY: Record<Locale, Copy> = {
   en: {
-    nav: { home: "Home", services: "Value Proposition", about: "About", resources: "Resources", contact: "Contact" },
+    nav: { home: "Home", services: "Services", about: "About", resources: "Resources", contact: "Contact" },
     home: {
-      heroEyebrow: "Production Partner · Asia",
-      heroHeadline: ["Your buying team in Asia.", "No conflict of interest."],
-      heroSub:
-        "We select the right manufacturer for your product, manage the introduction, and stay as your strategic partner throughout the relationship. You work directly with the factory. We make sure it's the right one.",
+      heroEyebrow: "Sourcing agent · Asia",
+      heroHeadline: ["Your sourcing agent in Asia.", "From the right factory to the final shipment."],
+      heroSub: "European workwear and PPE brands work with us to develop products, find the right factory, keep production on track and meet EU requirements — without building a team in Asia. Run by a former Head of Purchasing: we sit on your side of the table.",
       heroCta: "Let's talk",
-      credibility: [
-        "China, Vietnam, Bangladesh, Myanmar",
-        "Workwear · Outdoor · Sportswear",
-        "EN ISO · CSRD · CSDDD",
-      ],
+      credibility: ["China, Vietnam, Bangladesh, Myanmar", "Workwear · PPE", "EN ISO · CE"],
       positioningEyebrow: "What Buika Elements is",
-      positioningHead: "Not a sourcing agent. Your production partner in Asia.",
-      positioningBody: [
-        "Most brands working in Asia deal with one of two problems: going direct to a factory that only pushes its own capacity, or working with an agent who is somewhere in the middle without real accountability.",
-        "Buika Elements is neither. We are the external buying team that European workwear, outdoor and sportswear brands without an in-house Asia presence need — the equivalent of a Head of Asia Sourcing, without the fixed overhead. 16 years of manufacturer-side experience, a consolidated network of selected factories, and accountability that sits entirely with the client.",
-      ],
+      positioningHead: "Yes, we're a sourcing agent. Here's what that means with us.",
+      positioningBody: ["Most brands have worked with an agent who forwarded emails and disappeared when a shipment went wrong. We work differently.", "16 years in Asia, including running purchasing for a European workwear brand — we know what a FOB price hides and when a lead time is real. Based in Da Nang, Vietnam, close to the factories. And how we work and how we're paid is agreed before the first PO."],
       contrastEyebrow: "The difference in practice",
       contrast: {
         left: {
-          label: "Direct factory",
+          label: "A typical agent",
           lines: [
-            "Recommends itself.",
-            "Fills its own lines.",
-            "Defends its own interests when problems arise.",
-          ],
+            "Forwards emails.",
+            "Disappears when a shipment goes wrong.",
+            "Vague about how they're paid."
+          ]
         },
         right: {
           label: "Buika Elements",
           lines: [
-            "Recommends the right factory for your product.",
-            "Defends your brief.",
-            "Always on your side.",
-          ],
-        },
+            "Thinks like a buyer.",
+            "Based in Asia, close to the factories.",
+            "Clear terms from day one."
+          ]
+        }
       },
       stepsEyebrow: "How we work",
       stepsHead: "A structured process, not a transaction",
@@ -220,31 +212,40 @@ export const COPY: Record<Locale, Copy> = {
           body: "We review the relationship every season: is the factory delivering? Are there compliance gaps appearing? Is the country still the right fit as volumes grow? We are the first call when something strategic needs to be decided — a country transition, a compliance audit, a new product category. Not every conversation, but the ones that matter.",
         },
       ],
-      whyEyebrow: "What makes us different",
-      whyHead: "Four things, stated plainly",
+      whyEyebrow: "What we cover",
+      whyHead: "Five areas. Start where you need us.",
       why: [
         {
-          label: "Factory intelligence",
-          body: "We have spent years working on the manufacturer side. We know how a factory thinks, what a FOB price conceals, and when a lead time is real. That knowledge works in your favour.",
+          label: "Develop",
+          body: "ODM and ready-made catalogue (400+ new items per season), white label."
         },
         {
-          label: "16 years of own network",
-          body: "3–5 consolidated factory relationships across China, Vietnam, and Bangladesh. Built over 16 years. Not a directory — real production history with every partner.",
+          label: "Source",
+          body: "Country and factory selection, costing, negotiation."
         },
         {
-          label: "Based in Da Nang, Vietnam",
-          body: "Physical presence in Southeast Asia — not a European office managing emails. Direct factory access, real-time market intelligence, immediate response capacity.",
+          label: "Produce",
+          body: "PO follow-up, lead-time control, QC in the factory."
         },
         {
-          label: "EU compliance expertise",
-          body: "We bridge the gap between what a CSRD auditor requires and what a factory in Asia can actually document. Supply chain traceability, scope 3 reporting, CSDDD due diligence.",
+          label: "Comply",
+          body: "EN ISO / CE certification paths."
         },
+        {
+          label: "Consulting",
+          body: "Sourcing strategy and production relocation, supply chain diagnosis, EU regulation advisory."
+        },
+        {
+          tag: "Your scope",
+          label: "One area or all five — you choose.",
+          body: "Consulting is project-based: a defined question, a defined deliverable, a fixed fee."
+        }
       ],
       statement: "Transparency is not a risk — it's what makes the relationship work.",
       bottomCta: {
-        head: "Ready to stop guessing which factory is right for your product?",
-        body: "Tell us what you're working on. We'll tell you which country, which type of factory, and what a realistic price looks like — before you commit to anything.",
-        cta: "Start the conversation",
+        head: "Tell us what you're working on.",
+        body: "We'll tell you honestly whether we can help — and how.",
+        cta: "Book a 30-min call"
       },
     },
     valueProp: {
@@ -278,72 +279,80 @@ export const COPY: Record<Locale, Copy> = {
       ],
     },
     services: {
-      eyebrow: "Value Proposition",
-      head: "Four ways we work with you",
-      sub: "From feasibility study to integrated production partner — each engagement is scoped to match where you are and what you need to solve. Every engagement starts with a diagnosis, not a package.",
+      eyebrow: "Services",
+      head: "Five areas. Scoped to your situation.",
+      sub: "Every engagement starts with a conversation about your product, volumes and timeline — not a fixed package. Use one area or all five.",
       list: [
         {
-          situation: "For European workwear, outdoor and sportswear brands that want to operate in Asia without building an in-house team",
-          title: "Production Partner",
-          intro:
-            "The core model. We cover all three phases — diagnosis and factory selection, introduction and onboarding, and ongoing strategic KAM — so the relationship with Asia is managed with the same continuity and market perspective as an internal head of sourcing, without the fixed overhead.",
+          situation: "For brands entering a new category or widening their range",
+          title: "Develop",
+          intro: "",
           bullets: [
-            "Phase 1 — Diagnosis & selection: product, volumes and compliance analysis; country recommendation with documented rationale; factory selection from our consolidated network",
-            "Phase 2 — Introduction & onboarding: structured technical brief to the factory; direct client–factory communication from day one; onboarding support until first sample approval",
-            "Phase 3 — Ongoing strategic KAM: seasonal performance reviews, price benchmarking, compliance monitoring, and proactive market intelligence — without you needing to ask",
-            "Multi-country flexibility: production diversification across China, Vietnam, Bangladesh, or Myanmar as volumes and requirements evolve",
+            "Trend access: seasonal catalogues from our supplier network for range planning",
+            "ODM: catalogue products adapted to your spec and market",
+            "White label: supplier-developed products under your label, minimal changes"
           ],
-          outcome:
-            "The expertise, network and continuity of a Head of Asia Sourcing — without the fixed cost of an in-house hire.",
+          outcome: "400+ new items per season to build from, without your own design infrastructure."
         },
         {
-          situation: "For brands entering a new product category, testing a market segment, or scaling range width without development investment",
-          title: "ODM Product Development & Catalogue Access",
-          intro:
-            "Through our supplier network, we give brands direct access to original product development, seasonal design catalogues and white-label production. Suppliers develop 400+ new items per season across workwear, high-visibility, outdoor, softshell, rainwear and knitwear — with in-house design teams, technical development capability, and established certification pathways.",
+          situation: "For brands starting in Asia, adding a factory or moving production",
+          title: "Source",
+          intro: "",
           bullets: [
-            "Trend provider: periodic access to supplier seasonal catalogues — market intelligence for range planning before competitors see what is being developed in Asia",
-            "ODM product developer: select products from supplier catalogue; we adapt construction, fabric, colourway, trims and certifications to match your spec and market requirements",
-            "White-label: supplier-developed products under your label with minimal modification — fastest route to range expansion without development investment",
+            "Product, volume and compliance analysis before any recommendation",
+            "Country and factory selection from our network",
+            "Costing, FOB analysis and negotiation",
+            "Technical brief and onboarding until first sample approval"
           ],
-          outcome:
-            "Range width and product development capability without the infrastructure. Subject to compliance review per market and product category.",
+          outcome: "The right factory for your product, at a price you understand."
         },
         {
-          situation: "For companies evaluating whether and how to start or relocate production in Asia — before committing to any factory",
-          title: "Manufacturing Feasibility Study",
-          intro:
-            "A standalone written report that answers the decision your board needs to make before any factory conversation starts. Independent intelligence — not a factory catalogue.",
+          situation: "For brands with orders running in Asia — ongoing or a single PO",
+          title: "Produce",
+          intro: "",
           bullets: [
-            "Country recommendation with documented rationale: why Vietnam, Bangladesh, China or Myanmar is or is not the right answer for your specific range",
-            "Factory profile required: technical capability, certifications, minimum order structure — not a named factory, a defined profile",
-            "Compliance obligations mapped: EN certifications, CSRD scope 3, CSDDD due diligence — and how achievable they are in the recommended country",
-            "Realistic cost and lead time benchmarks — not a quote, a benchmark that protects against unrealistic expectations",
-            "Phased roadmap from decision to first production order, with realistic timelines and decision gates",
+            "PO follow-up and lead-time control",
+            "QC in the factory",
+            "Delay diagnosis and recovery, quality escalation at factory level",
+            "Can support a single order with a factory you already manage"
           ],
-          outcome:
-            "A written report delivered within 2–3 weeks of brief receipt. The decision made with independent intelligence, not a factory's sales pitch.",
+          outcome: "Orders that arrive as agreed. We start within 48 hours of your brief."
         },
         {
-          situation: "For brands with a live or imminent order facing a quality issue, delay, compliance gap, or price dispute",
-          title: "Supply Chain Solutions",
-          intro:
-            "Tactical, order-level support for brands that need analysis and resolution on a specific order — with or without an ongoing relationship with Buika Elements. The scope is defined by the order: one project, one shipment, one production run, one problem.",
+          situation: "For brands selling certified workwear and PPE in Europe",
+          title: "Comply",
+          intro: "",
           bullets: [
-            "Prevention mode — before the order is placed: order risk review, FOB price breakdown analysis, lead time viability assessment against product complexity and factory capacity",
-            "Resolution mode — when a problem is active: quality escalation at factory level, delay diagnosis and recovery plan, compliance gap identification and closure before shipment",
-            "No ongoing engagement required — can be activated for a single order with a factory the brand manages independently",
-            "Deliverable: concrete analysis and a specific action plan. Engagement can start within 48 hours of brief receipt",
+            "EN ISO / CE certification paths with the factory",
+            "Compliance gap check before shipment"
           ],
-          outcome:
-            "Order-level expertise, activated when you need it. Without committing to an ongoing relationship.",
+          outcome: "Products that meet EU requirements before they leave the factory."
         },
+        {
+          situation: "For companies deciding whether, where and how to produce in Asia",
+          title: "Consulting",
+          intro: "",
+          bullets: [
+            "Manufacturing feasibility study: country recommendation with rationale, factory profile, cost and lead-time benchmarks, phased roadmap",
+            "Production relocation: planning a move between countries or factories",
+            "Supply chain diagnosis: where your current setup loses money or time",
+            "EU regulation advisory: EN certifications, CSRD and CSDDD — and what they mean for your suppliers"
+          ],
+          outcome: "A written report and a clear decision, delivered in 2–3 weeks. Project-based, fixed fee."
+        },
+        {
+          situation: "Want all of it?",
+          title: "Full scope",
+          intro: "We act as your sourcing team in Asia — from development to delivery — with a seasonal review of performance, prices and country fit.",
+          bullets: [],
+          outcome: "The continuity of a Head of Asia Sourcing, without the fixed cost of a hire."
+        }
       ],
       bottomCta: {
-        head: "Not sure which engagement fits your situation?",
-        body: "Tell us where you are and what you're trying to solve. We'll suggest the right structure in a first call — no pitch deck, no fixed packages.",
-        cta: "Book a call",
-      },
+        head: "Not sure where to start?",
+        body: "Tell us what you're working on. We'll tell you which area fits — or if none does.",
+        cta: "Book a call"
+      }
     },
     about: {
       eyebrow: "About",
@@ -461,9 +470,9 @@ export const COPY: Record<Locale, Copy> = {
       ],
     },
     footer: {
-      positioning: "Production partner in Asia for European B2B brands. Da Nang, Vietnam.",
+      positioning: "Sourcing agent in Asia for European workwear and PPE brands. Da Nang, Vietnam.",
       nav: "Navigation",
-      navItems: ["Home", "Value Proposition", "About", "Resources"],
+      navItems: ["Home", "Services", "About", "Resources"],
       legal: "Legal",
       legalItems: ["Privacy", "Terms"],
       contact: "Contact",
@@ -493,46 +502,38 @@ export const COPY: Record<Locale, Copy> = {
   es: {
     nav: {
       home: "Inicio",
-      services: "Propuesta de Valor",
+      services: "Servicios",
       about: "Sobre nosotros",
       resources: "Recursos",
       contact: "Contacto",
     },
     home: {
-      heroEyebrow: "Production Partner · Asia",
-      heroHeadline: ["Tu equipo de compras en Asia.", "Sin conflicto de intereses."],
-      heroSub:
-        "Seleccionamos el fabricante adecuado para tu producto, gestionamos la introducción y nos quedamos como tu partner estratégico. Tú trabajas directamente con la fábrica. Nosotros nos aseguramos de que sea la correcta.",
+      heroEyebrow: "Agente de sourcing · Asia",
+      heroHeadline: ["Tu agente de sourcing en Asia.", "De la fábrica adecuada al envío final."],
+      heroSub: "Las marcas europeas de workwear y EPIs trabajan con nosotros para desarrollar producto, encontrar la fábrica adecuada, mantener la producción en plazo y cumplir los requisitos de la UE — sin montar un equipo en Asia. Lo dirige un ex Director de Compras: estamos de tu lado de la mesa.",
       heroCta: "Hablemos",
-      credibility: [
-        "China, Vietnam, Bangladesh, Myanmar",
-        "Workwear · Outdoor · Sportswear",
-        "EN ISO · CSRD · CSDDD",
-      ],
+      credibility: ["China, Vietnam, Bangladesh, Myanmar", "Workwear · EPIs", "EN ISO · CE"],
       positioningEyebrow: "Qué es Buika Elements",
-      positioningHead: "No somos un agente de sourcing. Somos tu production partner en Asia.",
-      positioningBody: [
-        "La mayoría de marcas que trabajan en Asia se encuentran con uno de dos problemas: ir directo a una fábrica que solo empuja su propia capacidad, o trabajar con un agente que está en medio sin accountability real.",
-        "Buika Elements no es ninguno de los dos. Somos el equipo de compras externo que las marcas europeas de workwear, outdoor y sportswear sin presencia interna en Asia necesitan — el equivalente a un Director de Compras Asia, sin el coste fijo. 16 años de experiencia desde el lado del fabricante, una red consolidada de fábricas seleccionadas, y accountability exclusivamente con el cliente.",
-      ],
+      positioningHead: "Sí, somos un agente de sourcing. Esto es lo que significa con nosotros.",
+      positioningBody: ["Casi todas las marcas han trabajado alguna vez con un agente que reenviaba emails y desaparecía cuando un envío salía mal. Nosotros trabajamos de otra forma.", "16 años en Asia, incluida la dirección de compras de una marca europea de workwear — sabemos lo que esconde un precio FOB y cuándo un plazo es real. Estamos en Da Nang, Vietnam, cerca de las fábricas. Y cómo trabajamos y cómo cobramos se acuerda antes del primer pedido."],
       contrastEyebrow: "La diferencia en la práctica",
       contrast: {
         left: {
-          label: "Fábrica directa",
+          label: "Un agente típico",
           lines: [
-            "Se recomienda a sí misma.",
-            "Llena sus líneas.",
-            "Defiende sus propios intereses cuando hay problemas.",
-          ],
+            "Reenvía emails.",
+            "Desaparece cuando un envío sale mal.",
+            "Poco claro sobre cómo cobra."
+          ]
         },
         right: {
           label: "Buika Elements",
           lines: [
-            "Recomienda la fábrica adecuada para tu producto.",
-            "Defiende tu brief.",
-            "Siempre de tu lado.",
-          ],
-        },
+            "Piensa como un comprador.",
+            "Está en Asia, cerca de las fábricas.",
+            "Condiciones claras desde el primer día."
+          ]
+        }
       },
       stepsEyebrow: "Cómo trabajamos",
       stepsHead: "Un proceso estructurado, no una transacción",
@@ -553,31 +554,40 @@ export const COPY: Record<Locale, Copy> = {
           body: "Revisamos la relación cada temporada: ¿está funcionando la fábrica? ¿hay gaps de compliance? ¿sigue siendo el país adecuado a medida que crecen los volúmenes? Somos la primera llamada cuando hay que tomar una decisión estratégica — una transición de país, una auditoría de compliance, una nueva categoría de producto.",
         },
       ],
-      whyEyebrow: "Lo que nos diferencia",
-      whyHead: "Cuatro cosas, dichas con claridad",
+      whyEyebrow: "Qué cubrimos",
+      whyHead: "Cinco áreas. Empieza por donde nos necesites.",
       why: [
         {
-          label: "Inteligencia de fabricante",
-          body: "Llevamos años trabajando del lado del fabricante. Sabemos cómo piensa una fábrica, qué esconde un precio FOB y cuándo un plazo es real. Ese conocimiento trabaja a tu favor.",
+          label: "Desarrollo",
+          body: "ODM y catálogo listo (400+ referencias nuevas por temporada), marca blanca."
         },
         {
-          label: "16 años de red propia",
-          body: "3–5 relaciones consolidadas con fábricas en China, Vietnam y Bangladesh. Construidas durante 16 años. No un directorio — historial de producción real con cada partner.",
+          label: "Sourcing",
+          body: "Selección de país y fábrica, escandallo, negociación."
         },
         {
-          label: "Base en Da Nang, Vietnam",
-          body: "Presencia física en el Sudeste Asiático — no una oficina europea gestionando emails. Acceso directo a fábricas, inteligencia de mercado en tiempo real, capacidad de respuesta inmediata.",
+          label: "Producción",
+          body: "Seguimiento de pedidos, control de plazos, QC en fábrica."
         },
         {
-          label: "Expertise en compliance EU",
-          body: "Hacemos el puente entre lo que necesita un auditor CSRD y lo que puede documentar una fábrica en Asia. Trazabilidad de supply chain, reporting scope 3, due diligence CSDDD.",
+          label: "Normativa",
+          body: "Rutas de certificación EN ISO / CE."
         },
+        {
+          label: "Consultoría",
+          body: "Estrategia de sourcing y relocalización de producción, diagnóstico de la cadena de suministro, asesoría en normativa UE."
+        },
+        {
+          tag: "Tu alcance",
+          label: "Un área o las cinco — tú eliges.",
+          body: "La consultoría se trabaja por proyecto: una pregunta definida, un entregable definido, un precio cerrado."
+        }
       ],
       statement: "La transparencia no es un riesgo — es lo que hace que la relación funcione.",
       bottomCta: {
-        head: "¿Listo para dejar de adivinar cuál es la fábrica adecuada para tu producto?",
-        body: "Cuéntanos en qué estás trabajando. Te decimos qué país, qué tipo de fábrica y cómo es un precio realista — antes de que te comprometas con nada.",
-        cta: "Empieza la conversación",
+        head: "Cuéntanos en qué estás trabajando.",
+        body: "Te diremos con honestidad si podemos ayudarte — y cómo.",
+        cta: "Reserva una llamada de 30 min"
       },
     },
     valueProp: {
@@ -611,72 +621,80 @@ export const COPY: Record<Locale, Copy> = {
       ],
     },
     services: {
-      eyebrow: "Propuesta de Valor",
-      head: "Cuatro formas en que trabajamos contigo",
-      sub: "Desde el estudio de viabilidad hasta el partner de producción integrado — cada colaboración se diseña según dónde estás y qué necesitas resolver. Siempre empieza con un diagnóstico, no con un paquete.",
+      eyebrow: "Servicios",
+      head: "Cinco áreas. Ajustadas a tu situación.",
+      sub: "Cada proyecto empieza con una conversación sobre tu producto, volúmenes y plazos — no con un paquete cerrado. Usa un área o las cinco.",
       list: [
         {
-          situation: "Para marcas europeas de workwear, outdoor y sportswear que quieren operar en Asia sin montar un equipo propio",
-          title: "Production Partner",
-          intro:
-            "El modelo principal. Cubrimos las tres fases — diagnóstico y selección de fábrica, introducción y onboarding, y KAM estratégico continuo — para que la relación con Asia se gestione con la misma continuidad y visión de mercado que un Director de Compras Asia interno, sin el coste fijo.",
+          situation: "Para marcas que entran en una categoría nueva o amplían su gama",
+          title: "Desarrollo",
+          intro: "",
           bullets: [
-            "Fase 1 — Diagnóstico y selección: análisis de producto, volúmenes y compliance; recomendación de país con justificación documentada; selección de fábrica de nuestra red consolidada",
-            "Fase 2 — Introducción y onboarding: brief técnico estructurado a la fábrica; comunicación directa cliente–fábrica desde el primer día; soporte de onboarding hasta la aprobación de primera muestra",
-            "Fase 3 — KAM estratégico continuo: revisiones de rendimiento por temporada, benchmarking de precios, seguimiento de compliance e inteligencia de mercado proactiva — sin que tengas que pedirlo",
-            "Flexibilidad multi-país: diversificación de producción entre China, Vietnam, Bangladesh o Myanmar según evolucionen volúmenes y requisitos",
+            "Acceso a tendencias: catálogos de temporada de nuestra red de proveedores para planificar la gama",
+            "ODM: productos de catálogo adaptados a tu especificación y mercado",
+            "Marca blanca: productos desarrollados por el proveedor con tu marca, con cambios mínimos"
           ],
-          outcome:
-            "La expertise, la red y la continuidad de un Director de Compras Asia — sin el coste fijo de una contratación interna.",
+          outcome: "Más de 400 referencias nuevas por temporada para construir tu gama, sin infraestructura de diseño propia."
         },
         {
-          situation: "Para marcas que entran en una nueva categoría de producto, testean un segmento o amplían gama sin inversión en desarrollo",
-          title: "Desarrollo ODM y Acceso a Catálogo de Proveedores",
-          intro:
-            "A través de nuestra red de proveedores, damos a las marcas acceso directo a desarrollo de producto original, catálogos de diseño estacionales y producción white-label. Los proveedores desarrollan 400+ nuevas referencias por temporada en workwear, alta visibilidad, outdoor, softshell, lluvia y knitwear — con equipos de diseño internos, capacidad de desarrollo técnico y vías de certificación consolidadas.",
+          situation: "Para marcas que empiezan en Asia, añaden una fábrica o trasladan producción",
+          title: "Sourcing",
+          intro: "",
           bullets: [
-            "Trend provider: acceso periódico a catálogos estacionales de proveedores — inteligencia de mercado para planificación de gama antes de que la competencia vea qué se está desarrollando en Asia",
-            "Desarrollador ODM: seleccionas productos del catálogo del proveedor; nosotros adaptamos construcción, tejido, color, avíos y certificaciones para que encajen con tus especificaciones y mercado",
-            "White-label: productos desarrollados por el proveedor bajo tu marca con modificaciones mínimas — la ruta más rápida para ampliar gama sin inversión en desarrollo",
+            "Análisis de producto, volumen y compliance antes de cualquier recomendación",
+            "Selección de país y fábrica dentro de nuestra red",
+            "Escandallo, análisis del FOB y negociación",
+            "Brief técnico y onboarding hasta la aprobación de la primera muestra"
           ],
-          outcome:
-            "Amplitud de gama y capacidad de desarrollo de producto sin la infraestructura. Sujeto a revisión de compliance por mercado y categoría de producto.",
+          outcome: "La fábrica adecuada para tu producto, a un precio que entiendes."
         },
         {
-          situation: "Para empresas que evalúan si y cómo empezar o reubicar producción en Asia — antes de comprometerse con ninguna fábrica",
-          title: "Estudio de Viabilidad de Fabricación",
-          intro:
-            "Un informe escrito independiente que responde la decisión que tu dirección necesita tomar antes de empezar cualquier conversación con fábricas. Inteligencia independiente — no un catálogo de fábricas.",
+          situation: "Para marcas con pedidos en marcha en Asia — continuos o un solo pedido",
+          title: "Producción",
+          intro: "",
           bullets: [
-            "Recomendación de país con justificación documentada: por qué Vietnam, Bangladesh, China o Myanmar es o no la respuesta correcta para tu gama específica",
-            "Perfil de fábrica necesario: capacidad técnica, certificaciones, estructura de pedido mínimo — no una fábrica concreta, un perfil definido",
-            "Obligaciones de compliance mapeadas: certificaciones EN, CSRD scope 3, due diligence CSDDD — y qué tan alcanzables son en el país recomendado",
-            "Benchmarks realistas de coste y plazo de entrega — no una oferta, un benchmark que protege frente a expectativas irreales",
-            "Hoja de ruta por fases desde la decisión hasta el primer pedido de producción, con plazos y puntos de decisión realistas",
+            "Seguimiento de pedidos y control de plazos",
+            "QC en fábrica",
+            "Diagnóstico y recuperación de retrasos, escalado de calidad a nivel de fábrica",
+            "Podemos apoyar un solo pedido con una fábrica que ya gestionas tú"
           ],
-          outcome:
-            "Un informe escrito entregado en 2–3 semanas desde la recepción del brief. La decisión tomada con inteligencia independiente, no con el discurso comercial de una fábrica.",
+          outcome: "Pedidos que llegan como se acordó. Empezamos en 48 horas desde tu brief."
         },
         {
-          situation: "Para marcas con un pedido activo o inminente con un problema concreto — incidencia de calidad, retraso, gap de compliance o disputa de precio",
-          title: "Soluciones de Cadena de Suministro",
-          intro:
-            "Soporte táctico a nivel de pedido para marcas que necesitan análisis y resolución en un pedido concreto — con o sin relación continua con Buika Elements. El alcance lo define el pedido: un proyecto, un envío, una producción, un problema.",
+          situation: "Para marcas que venden workwear y EPIs certificados en Europa",
+          title: "Normativa",
+          intro: "",
           bullets: [
-            "Modo prevención — antes de colocar el pedido: revisión de riesgos del pedido, análisis de desglose del precio FOB, evaluación de viabilidad del plazo frente a complejidad del producto y capacidad de la fábrica",
-            "Modo resolución — cuando hay un problema activo: escalado de calidad a nivel de fábrica, diagnóstico de retraso y plan de recuperación, identificación y cierre de gaps de compliance antes del envío",
-            "Sin relación continua necesaria — puede activarse para un pedido concreto con una fábrica que la marca gestiona de forma independiente",
-            "Entregable: análisis concreto y plan de acción específico. La colaboración puede iniciarse en 48 horas desde la recepción del brief",
+            "Rutas de certificación EN ISO / CE con la fábrica",
+            "Revisión de gaps de compliance antes del envío"
           ],
-          outcome:
-            "Expertise a nivel de pedido, activada cuando la necesitas. Sin comprometerte a una relación continua.",
+          outcome: "Productos que cumplen los requisitos de la UE antes de salir de la fábrica."
         },
+        {
+          situation: "Para empresas que deciden si producir en Asia, dónde y cómo",
+          title: "Consultoría",
+          intro: "",
+          bullets: [
+            "Estudio de viabilidad de fabricación: recomendación de país razonada, perfil de fábrica, benchmarks de coste y plazo, hoja de ruta por fases",
+            "Relocalización de producción: planificar un cambio de país o de fábrica",
+            "Diagnóstico de la cadena de suministro: dónde pierde dinero o tiempo tu modelo actual",
+            "Asesoría en normativa UE: certificaciones EN, CSRD y CSDDD — y qué suponen para tus proveedores"
+          ],
+          outcome: "Un informe escrito y una decisión clara, en 2–3 semanas. Por proyecto, a precio cerrado."
+        },
+        {
+          situation: "¿Lo quieres todo?",
+          title: "Alcance completo",
+          intro: "Actuamos como tu equipo de sourcing en Asia — del desarrollo a la entrega — con una revisión cada temporada de rendimiento, precios y encaje de país.",
+          bullets: [],
+          outcome: "La continuidad de un Director de Compras en Asia, sin el coste fijo de contratarlo."
+        }
       ],
       bottomCta: {
-        head: "¿No estás seguro de qué colaboración encaja en tu situación?",
-        body: "Cuéntanos dónde estás y qué intentas resolver. Te propondremos la estructura adecuada en una primera llamada — sin pitch deck, sin paquetes fijos.",
-        cta: "Reservar llamada",
-      },
+        head: "¿No sabes por dónde empezar?",
+        body: "Cuéntanos en qué estás trabajando. Te diremos qué área encaja — o si no encaja ninguna.",
+        cta: "Reserva una llamada"
+      }
     },
     about: {
       eyebrow: "Sobre nosotros",
@@ -793,9 +811,9 @@ export const COPY: Record<Locale, Copy> = {
       ],
     },
     footer: {
-      positioning: "Production partner en Asia para marcas B2B europeas. Da Nang, Vietnam.",
+      positioning: "Agente de sourcing en Asia para marcas europeas de workwear y EPIs. Da Nang, Vietnam.",
       nav: "Navegación",
-      navItems: ["Inicio", "Propuesta de Valor", "Sobre nosotros", "Recursos"],
+      navItems: ["Inicio", "Servicios", "Sobre nosotros", "Recursos"],
       legal: "Legal",
       legalItems: ["Privacidad", "Términos"],
       contact: "Contacto",
