@@ -48,7 +48,6 @@ export function AboutBio() {
                 borderTop: "1px solid var(--stone)",
               }}
             >
-              <span>Fig. 01</span>
               <span>Da Nang · 2026</span>
             </div>
           </div>

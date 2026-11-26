@@ -20,11 +20,11 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || "https://buikaelements.com"
   ),
   title: {
-    default: "Buika Elements — Production partner in Asia",
+    default: "Buika Elements — Sourcing agent in Asia",
     template: "%s · Buika Elements",
   },
   description:
-    "Your buying team in Asia. 16+ years of manufacturer-side experience across China, Vietnam, Bangladesh, Myanmar. Da Nang.",
+    "Sourcing agent in Asia for European workwear and PPE brands. 16+ years across China, Vietnam, Bangladesh, Myanmar. Da Nang.",
   openGraph: {
     type: "website",
     siteName: "Buika Elements",

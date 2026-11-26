@@ -187,7 +187,8 @@ export function ServicesList({ variant = "full" }: { variant?: "preview" | "full
                     <h2 className="h2" style={{ marginBottom: 28, maxWidth: 780 }}>
                       {it.title}
                     </h2>
-                    <p
+                    {it.intro && (
+<p
                       style={{
                         fontSize: "clamp(17px, 1.35vw, 19px)",
                         lineHeight: 1.6,
@@ -199,7 +200,9 @@ export function ServicesList({ variant = "full" }: { variant?: "preview" | "full
                     >
                       {it.intro}
                     </p>
-                    <ul
+                    )}
+                    {it.bullets.length > 0 && (
+<ul
                       style={{
                         listStyle: "none",
                         margin: 0,
@@ -237,6 +240,7 @@ export function ServicesList({ variant = "full" }: { variant?: "preview" | "full
                         </li>
                       ))}
                     </ul>
+                    )}
                     <div
                       style={{
                         marginTop: 36,
